@@ -1,6 +1,6 @@
 ﻿using Shared.Domain.Bases;
 
-namespace Shared.Domain.Exception;
+namespace Shared.Domain.Exceptions;
 
 public class ProductNotFoundException : BaseDomainException
 {

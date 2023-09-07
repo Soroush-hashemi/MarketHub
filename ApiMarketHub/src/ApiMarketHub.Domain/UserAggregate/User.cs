@@ -1,12 +1,16 @@
 ﻿using ApiMarketHub.Domain.UserAggregate.Enums;
 using ApiMarketHub.Domain.UserAggregate.Services;
 using Shared.Domain.Bases;
-using Shared.Domain.Exception;
+using Shared.Domain.Exceptions;
 using Shared.Domain.Tools;
 
 namespace ApiMarketHub.Domain.UserAggregate;
 public class User : AggregateRoot
 {
+
+    // این قسمت از کد فقط اجازه ی تغییرات رو میده و تغییرات انجام نمیشه تا زمانی که داحل ریپازیتوری تغییرات انجام بشه
+    // تقریبا تمام کد ما اینطوریه 
+    // پراپرتی ها موقتا تغییر میکنن و میریم به ریپازیتوری
     private User()
     {
 
@@ -63,24 +67,81 @@ public class User : AggregateRoot
         return new User("", "", phoneNumber, null, password, Gender.NONE, userDomainService);
     }
 
+    public void SetAvatar(string avatarImage)
+    {
+        NullOrEmptyException.CheckString(avatarImage, nameof(avatarImage));
+        AvatarName = avatarImage;
+    }
+
+    public void AddAddress(UserAddress address)
+    {
+        address.UserId = Id;
+        Addresses.Add(address);
+    }
+
+    public void RemoveAddress(long AddressId)
+    {
+        var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
+        if (previousAddress != null)
+            throw new InvalidDomainDataException("Address not found");
+        Addresses.Remove(previousAddress);
+    }
+
+    public void EditAddress(UserAddress address, long AddressId)
+    {
+        var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
+        if (previousAddress != null)
+            throw new InvalidDomainDataException("Address not found");
+
+        // از ادرس قدیمی استفاده میکنیم چون جنسش از آدرسه و نیاز نیست یه وار جدید بسازیم 
+        previousAddress.Edit(address.State, address.City, address.PostalCode,
+            address.AddressDetail, address.PhoneNumber, address.Name, address.Family, address.NationalCode);
+    }
+
+    public void SetActiveAddress(long AddressId)
+    {
+        var currentAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
+        if (currentAddress != null)
+            throw new InvalidDomainDataException("Address not found");
+
+        foreach (var address in Addresses)
+        {
+            address.SetDeActive();
+        }
+
+        currentAddress.SetActive();
+    }
+
+    public void ChargeWallet(Wallet wallet)
+    {
+        wallet.UserId = Id;
+        Wallets.Add(wallet);
+    }
+
+    public void SetRoles(List<UserRole> roles)
+    {
+        roles.ForEach(f => f.UserId = Id);
+        Roles.Clear();
+        Roles.AddRange(roles);
+    }
 
     public void Guard(string phoneNumber, string email, IUserDomainService userDomainService)
     {
         NullOrEmptyException.CheckString(phoneNumber, nameof(phoneNumber));
 
         if (phoneNumber.Length != 11)
-            throw new ("شماره موبایل نامعتبر است");
+            throw new("PhoneNumber Is Invalid");
 
         if (!string.IsNullOrWhiteSpace(email))
             if (email.IsValidEmail() == false)
-                throw new InvalidDomainDataException(" ایمیل  نامعتبر است");
+                throw new InvalidDomainDataException("Email Is Invalid");
 
         if (phoneNumber != PhoneNumber)
             if (userDomainService.IsPhoneNumberExist(phoneNumber))
-                throw new InvalidDomainDataException("شماره موبایل تکراری است");
+                throw new InvalidDomainDataException("PhoneNumber Is Invalid");
 
         if (email != Email)
             if (userDomainService.IsEmailExist(email))
-                throw new InvalidDomainDataException("ایمیل تکراری است");
+                throw new InvalidDomainDataException("Email Is Invalid");
     }
 }

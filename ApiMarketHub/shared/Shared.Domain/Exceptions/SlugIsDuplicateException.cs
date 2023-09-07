@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Domain.Exception;
+namespace Shared.Domain.Exceptions;
 public class SlugIsDuplicateException : BaseDomainException
 {
     public SlugIsDuplicateException() : base("slug تکراری است")

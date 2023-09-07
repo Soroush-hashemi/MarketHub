@@ -1,5 +1,5 @@
 ﻿namespace ApiMarketHub.Domain.UserAggregate.Services;
-internal interface IUserDomainService
+public interface IUserDomainService
 {
     bool IsEmailExist(string email);
     bool IsPhoneNumberExist(string phoneNumber);

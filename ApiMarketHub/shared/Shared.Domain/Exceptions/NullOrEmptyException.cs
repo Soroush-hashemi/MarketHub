@@ -1,7 +1,7 @@
 ﻿using Shared.Domain.Bases;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Shared.Domain.Exception;
+namespace Shared.Domain.Exceptions;
 public class NullOrEmptyException : BaseDomainException
 {
     public NullOrEmptyException()

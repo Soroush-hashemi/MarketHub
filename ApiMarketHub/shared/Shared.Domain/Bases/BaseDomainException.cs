@@ -1,5 +1,5 @@
 ﻿namespace Shared.Domain.Bases;
-public class BaseDomainException
+public class BaseDomainException : Exception
 {
     public BaseDomainException()
     {

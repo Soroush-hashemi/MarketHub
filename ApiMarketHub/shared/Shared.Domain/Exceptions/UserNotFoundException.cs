@@ -1,7 +1,7 @@
 ﻿using Shared.Domain.Bases;
 
-namespace Shared.Domain.Exception;
-    public class UserNotFoundException : BaseDomainException
+namespace Shared.Domain.Exceptions;
+public class UserNotFoundException : BaseDomainException
 {
     public UserNotFoundException()
     {
