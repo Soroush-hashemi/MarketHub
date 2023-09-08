@@ -21,6 +21,7 @@ public class UserAddress : BaseEntity
     public string Family { get; private set; }
     public string NationalCode { get; private set; }
     public bool ActiveAddress { get; private set; }
+
     public UserAddress(string state, string city, string postalCode, string addressDetail, string phoneNumber, string name, string family, string nationalCode)
     {
         Guard(state, city, postalCode, addressDetail, phoneNumber, name, family, nationalCode);

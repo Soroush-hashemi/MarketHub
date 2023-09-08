@@ -8,6 +8,6 @@ public class UserRole : BaseEntity
         RoleId = roleId;
     }
 
-    public long UserId { get; set; }
+    public long UserId { get; internal set; }
     public long RoleId { get; private set; }
 }
