@@ -3,7 +3,6 @@ using Shared.Domain.Bases;
 using Shared.Domain.Exceptions;
 using Shared.Domain.Tools;
 using Shared.Domain.ValueObjects;
-using System;
 
 namespace ApiMarketHub.Domain.CategoryAggregate;
 public class Category : AggregateRoot
