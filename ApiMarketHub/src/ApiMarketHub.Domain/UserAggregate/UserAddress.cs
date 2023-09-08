@@ -1,7 +1,7 @@
 ﻿using Shared.Domain.Bases;
 using Shared.Domain.Exceptions;
 using Shared.Domain.Tools;
-using System.Drawing;
+using Shared.Domain.ValueObjects;
 
 namespace ApiMarketHub.Domain.UserAggregate;
 public class UserAddress : BaseEntity
@@ -16,13 +16,13 @@ public class UserAddress : BaseEntity
     public string City { get; private set; }
     public string PostalCode { get; private set; }
     public string AddressDetail { get; private set; }
-    public string /*PhoneNumber*/ PhoneNumber { get; private set; }
+    public PhoneNumber PhoneNumber { get; private set; }
     public string Name { get; private set; }
     public string Family { get; private set; }
     public string NationalCode { get; private set; }
     public bool ActiveAddress { get; private set; }
 
-    public UserAddress(string state, string city, string postalCode, string addressDetail, string phoneNumber, string name, string family, string nationalCode)
+    public UserAddress(string state, string city, string postalCode, string addressDetail, PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
         Guard(state, city, postalCode, addressDetail, phoneNumber, name, family, nationalCode);
         State = state;
@@ -36,7 +36,7 @@ public class UserAddress : BaseEntity
         ActiveAddress = false;
     }
 
-    public void Edit(string state, string city, string postalCode, string addressDetail, string phoneNumber, string name, string family, string nationalCode)
+    public void Edit(string state, string city, string postalCode, string addressDetail, PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
         Guard(state, city, postalCode, addressDetail, phoneNumber, name, family, nationalCode);
 
@@ -60,7 +60,7 @@ public class UserAddress : BaseEntity
         ActiveAddress = false;
     }
 
-    public void Guard(string state, string city, string postalCode, string addressDetail, string phoneNumber, string name, string family, string nationalCode)
+    public void Guard(string state, string city, string postalCode, string addressDetail, PhoneNumber phoneNumber, string name, string family, string nationalCode)
     {
         if (phoneNumber == null)
             throw new NullOrEmptyException();
@@ -74,6 +74,6 @@ public class UserAddress : BaseEntity
         NullOrEmptyException.CheckString(nationalCode, nameof(nationalCode));
 
         if (IranianNationalIdChecker.IsValid(nationalCode) == false)
-            throw new InvalidDomainDataException("nationalCode Is Invalid");
+            throw new InvalidDomainDataException("nationalCode is invalid");
     }
 }

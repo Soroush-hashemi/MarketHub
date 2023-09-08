@@ -1,8 +1,9 @@
 ﻿using ApiMarketHub.Domain.UserAggregate.Enums;
-using ApiMarketHub.Domain.UserAggregate.Services;
+using ApiMarketHub.Domain.UserAggregate.Service;
 using Shared.Domain.Bases;
 using Shared.Domain.Exceptions;
 using Shared.Domain.Tools;
+using Shared.Domain.ValueObjects;
 
 namespace ApiMarketHub.Domain.UserAggregate;
 public class User : AggregateRoot
@@ -18,7 +19,7 @@ public class User : AggregateRoot
 
     public string Name { get; private set; }
     public string Family { get; private set; }
-    public string PhoneNumber { get; private set; }
+    public PhoneNumber PhoneNumber { get; private set; }
     public string Email { get; private set; }
     public string Password { get; private set; }
     public string AvatarName { get; set; }
@@ -30,7 +31,7 @@ public class User : AggregateRoot
     public List<UserToken> Tokens { get; }
 
 
-    public User(string name, string family, string phoneNumber, string email, string password, Gender gender, IUserDomainService userDomainService)
+    public User(string name, string family, PhoneNumber phoneNumber, string email, string password, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -47,7 +48,7 @@ public class User : AggregateRoot
         Tokens = new();
     }
 
-    public void Edit(string name, string family, string phoneNumber, string email, Gender gender, IUserDomainService userDomainService)
+    public void Edit(string name, string family, PhoneNumber phoneNumber, string email, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -62,7 +63,7 @@ public class User : AggregateRoot
         NullOrEmptyException.CheckString(newPassword, nameof(newPassword));
         Password = newPassword;
     }
-    public static User RegisterUser(string phoneNumber, string password, IUserDomainService userDomainService)
+    public static User RegisterUser(PhoneNumber phoneNumber, string password, IUserDomainService userDomainService)
     {
         return new User("", "", phoneNumber, null, password, Gender.NONE, userDomainService);
     }
@@ -125,11 +126,9 @@ public class User : AggregateRoot
         Roles.AddRange(roles);
     }
 
-    public void Guard(string phoneNumber, string email, IUserDomainService userDomainService)
+    public void Guard(PhoneNumber phoneNumber, string email, IUserDomainService userDomainService)
     {
-        NullOrEmptyException.CheckString(phoneNumber, nameof(phoneNumber));
-
-        if (phoneNumber.Length != 11)
+        if (phoneNumber.Value.Length != 11)
             throw new("PhoneNumber Is Invalid");
 
         if (!string.IsNullOrWhiteSpace(email))

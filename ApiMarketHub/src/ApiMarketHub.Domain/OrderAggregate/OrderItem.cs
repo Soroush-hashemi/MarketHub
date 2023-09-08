@@ -48,7 +48,7 @@ public class OrderItem : BaseEntity
     public void PriceGuard(int NewPrice)
     {
         if (NewPrice < 1)
-            throw new InvalidDomainDataException("Price Is Invalid");
+            throw new InvalidDomainDataException("price is invalid");
     }
 
     public void CountGuard(int count)

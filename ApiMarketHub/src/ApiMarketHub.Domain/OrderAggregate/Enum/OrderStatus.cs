@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApiMarketHub.Domain.OrderAggregate.Enums;
+namespace ApiMarketHub.Domain.OrderAggregate.Enum;
 public enum OrderStatus 
 {
     Pending,

@@ -1,7 +1,8 @@
 ﻿using ApiMarketHub.Domain.RoleAggregate.Enum;
+using Shared.Domain.Bases;
 
 namespace ApiMarketHub.Domain.RoleAggregate;
-public class RolePermission
+public class RolePermission : BaseEntity
 {
     public RolePermission(Permission permission)
     {

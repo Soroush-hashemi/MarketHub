@@ -1,9 +1,8 @@
-﻿
-
+﻿using Shared.Domain.Bases;
 using Shared.Domain.Exceptions;
 
 namespace ApiMarketHub.Domain.RoleAggregate;
-public class Role
+public class Role : AggregateRoot 
 {
     public string Title { get; private set; }
     public List<RolePermission> Permissions { get; private set; }
