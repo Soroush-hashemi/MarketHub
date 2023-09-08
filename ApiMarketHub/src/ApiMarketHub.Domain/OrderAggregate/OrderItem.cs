@@ -26,7 +26,9 @@ public class OrderItem : BaseEntity
 
     public void DecreaseCount(int count)
     {
-        if (Count == 0 && Count == 1)
+        if (Count == 0)
+            return;
+        if (Count == 1)
             return;
         Count -= count;
     }
