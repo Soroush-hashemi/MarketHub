@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{F8C7CD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain", "ApiMarketHub\shared\Shared.Domain\Shared.Domain.csproj", "{018370DD-FD31-4272-8A4A-433D4674CBE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMarketHub.Domain.UnitTest", "ApiMarketHub\test\ApiMarketHub.Domain.UnitTest\ApiMarketHub.Domain.UnitTest.csproj", "{F82B0A97-A063-4B76-A350-372D0BE6A618}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{018370DD-FD31-4272-8A4A-433D4674CBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018370DD-FD31-4272-8A4A-433D4674CBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018370DD-FD31-4272-8A4A-433D4674CBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82B0A97-A063-4B76-A350-372D0BE6A618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82B0A97-A063-4B76-A350-372D0BE6A618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82B0A97-A063-4B76-A350-372D0BE6A618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82B0A97-A063-4B76-A350-372D0BE6A618}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{1205DDA8-D7F0-4988-9E27-F488C9C4D6CA} = {ABDD8126-8997-49EE-9557-301AFD24F35B}
 		{F8C7CD9C-31BA-4168-9486-82339BB6F301} = {7129FA14-D2C1-46D8-944F-70A4CA983B47}
 		{018370DD-FD31-4272-8A4A-433D4674CBE9} = {F8C7CD9C-31BA-4168-9486-82339BB6F301}
+		{F82B0A97-A063-4B76-A350-372D0BE6A618} = {398D71C8-BF45-4128-AEAF-4B5DE3CAECF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F005F7C-74E6-436D-99DE-CF2FAF3A0AD9}
