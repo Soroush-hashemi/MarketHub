@@ -24,7 +24,7 @@ public class UserAddressTest
     }
 
     [Fact]
-    public void Constructor_Should_NotImplementedException_When_Data_ExceptPhoneNumber_Was_Null()
+    public void Constructor_Should_Throw_NotImplementedException_When_Data_ExceptPhoneNumber_Was_Null()
     {
         // Arrange & Act
         Action act = () => _userAddressBuilder.CreatedNullUserAddress();
