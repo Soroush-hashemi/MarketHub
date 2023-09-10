@@ -54,6 +54,7 @@ public class WalletTest
         // Assert
         wallet.IsFinally.Should().BeTrue();
         wallet.Description.Should().Be("Test Description'\n کد پیگیری : 321456");
+
     }
 
     [Fact]

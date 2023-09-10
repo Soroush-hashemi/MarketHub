@@ -5,4 +5,5 @@ public interface IUserDomainService
 {
     bool IsEmailExist(string email);
     bool IsPhoneNumberExist(PhoneNumber phoneNumber);
+    bool IsUserAddressExist(long userAddress);
 }

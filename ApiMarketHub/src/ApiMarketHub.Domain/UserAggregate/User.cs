@@ -31,7 +31,8 @@ public class User : AggregateRoot
     public List<UserToken> Tokens { get; }
 
 
-    public User(string name, string family, PhoneNumber phoneNumber, string email, string password, Gender gender, IUserDomainService userDomainService)
+    public User(string name, string family, PhoneNumber phoneNumber, string email,
+        string password, string avatarName, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -40,7 +41,9 @@ public class User : AggregateRoot
         Email = email;
         Password = password;
         Gender = gender;
-        AvatarName = "avatar.png";
+        if (avatarName == null)
+            AvatarName = "avatar.png";
+        AvatarName = avatarName;
         IsActive = true;
         Roles = new();
         Wallets = new();
@@ -48,7 +51,8 @@ public class User : AggregateRoot
         Tokens = new();
     }
 
-    public void Edit(string name, string family, PhoneNumber phoneNumber, string email, Gender gender, IUserDomainService userDomainService)
+    public void Edit(string name, string family, PhoneNumber phoneNumber,
+        string email, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -63,9 +67,10 @@ public class User : AggregateRoot
         NullOrEmptyException.CheckString(newPassword, nameof(newPassword));
         Password = newPassword;
     }
+
     public static User RegisterUser(PhoneNumber phoneNumber, string password, IUserDomainService userDomainService)
     {
-        return new User("", "", phoneNumber, null, password, Gender.NONE, userDomainService);
+        return new User("", "", phoneNumber, null, password, "", Gender.NONE, userDomainService);
     }
 
     public void SetAvatar(string avatarImage)
@@ -80,29 +85,29 @@ public class User : AggregateRoot
         Addresses.Add(address);
     }
 
-    public void RemoveAddress(long AddressId)
+    public void RemoveAddress(long AddressId, IUserDomainService userDomainService)
     {
         var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
-        if (previousAddress != null)
+        if (userDomainService.IsUserAddressExist(AddressId) == false)
             throw new InvalidDomainDataException("Address not found");
         Addresses.Remove(previousAddress);
     }
 
-    public void EditAddress(UserAddress address, long AddressId)
+    public void EditAddress(UserAddress address, long AddressId, IUserDomainService userDomainService)
     {
         var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
-        if (previousAddress != null)
+        if (userDomainService.IsUserAddressExist(AddressId) == false)
             throw new InvalidDomainDataException("Address not found");
 
         // از ادرس قدیمی استفاده میکنیم چون جنسش از آدرسه و نیاز نیست یه وار جدید بسازیم 
         previousAddress.Edit(address.State, address.City, address.PostalCode,
-            address.AddressDetail, address.PhoneNumber, address.Name, address.Family, address.NationalCode);
+      address.AddressDetail, address.PhoneNumber, address.Name, address.Family, address.NationalCode);
     }
 
     public void SetActiveAddress(long AddressId)
     {
         var currentAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
-        if (currentAddress != null)
+        if (currentAddress == null)
             throw new InvalidDomainDataException("Address not found");
 
         foreach (var address in Addresses)
@@ -129,18 +134,11 @@ public class User : AggregateRoot
     public void Guard(PhoneNumber phoneNumber, string email, IUserDomainService userDomainService)
     {
         if (phoneNumber.Value.Length != 11)
-            throw new("PhoneNumber Is Invalid");
-
-        if (!string.IsNullOrWhiteSpace(email))
-            if (email.IsValidEmail() == false)
-                throw new InvalidDomainDataException("Email Is Invalid");
-
-        if (phoneNumber != PhoneNumber)
             if (userDomainService.IsPhoneNumberExist(phoneNumber))
                 throw new InvalidDomainDataException("PhoneNumber Is Invalid");
 
-        if (email != Email)
-            if (userDomainService.IsEmailExist(email))
+        if (!string.IsNullOrWhiteSpace(email))
+            if (email.IsValidEmail() == false)
                 throw new InvalidDomainDataException("Email Is Invalid");
     }
 }
