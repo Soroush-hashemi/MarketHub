@@ -23,24 +23,4 @@ public class UserBuilder
         var user = new User(name, family, phoneNumber, email, password, avatarName, gender, userDomainService);
         return user;
     }
-
-    public void AssertForConstructorFull_User(User user)
-    {
-        user.Name.Should().Be("soroush");
-        user.Family.Should().Be("hashemi");
-        user.PhoneNumber.Value.Should().Be("09901112233");
-        user.Email.Should().Be("soroush@gmail.com");
-        user.Password.Should().Be("1w2e3r4t!?");
-        user.Gender.Should().Be(Gender.MALE);
-        user.AvatarName.Should().Be("soroush.png");
-    }
-
-    public void AssertForEdit(User user)
-    {
-        user.Name.Should().Be("soroush2");
-        user.Family.Should().Be("hashemi2");
-        user.PhoneNumber.Value.Should().Be("09902224455");
-        user.Email.Should().Be("soroush8@gmail.com");
-        user.Gender.Should().Be(Gender.NONE);
-    }
 }

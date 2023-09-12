@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ApiMarketHub.Domain.CategoryAggregate.Service;
+﻿namespace ApiMarketHub.Domain.CategoryAggregate.Service;
 public interface ICategoryDomainService
 {
     public bool IsSlugExist(string slug);

@@ -27,6 +27,7 @@ public class Category : AggregateRoot
         SeoData = seoData;
         Childs = new List<Category>();
     }
+
     public void Edit(string title, string slug, SeoData seoData, ICategoryDomainService service)
     {
         slug = slug?.ToSlug();
@@ -50,7 +51,7 @@ public class Category : AggregateRoot
         NullOrEmptyException.CheckString(slug, nameof(slug));
 
         if (slug != Slug)
-            if (service.IsSlugExist(slug))
+            if (service.IsSlugExist(slug) == false)
                 throw new SlugAlreadyExistsException();
     }
 }

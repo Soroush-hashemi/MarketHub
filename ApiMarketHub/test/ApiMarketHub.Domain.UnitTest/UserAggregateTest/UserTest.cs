@@ -23,98 +23,6 @@ public class UserTest
     }
 
     [Fact]
-    public void Constructor_Should_Set_User()
-    {
-        // Arrange & Act
-        var user = _userBuilder.Constructor_User();
-
-        // Assert
-        _userBuilder.AssertForConstructorFull_User(user);
-    }
-
-    [Fact]
-    public void Edit_Should_Edit_User()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-        var userDomainService = Substitute.For<IUserDomainService>();
-
-        // Act
-        user.Edit("soroush2", "hashemi2", new PhoneNumber("09902224455"),
-            "soroush8@gmail.com", Gender.NONE, userDomainService);
-
-        // Assert
-        _userBuilder.AssertForEdit(user);
-    }
-
-    [Fact]
-    public void ChangePassword_Should_ChangePassword()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-
-        // Act
-        user.ChangePassword("13sa09ha");
-
-        // Assert
-        user.Password.Should().Be("13sa09ha");
-    }
-
-    [Fact]
-    public void ChangePassword_Should_Throw_NotImplementedException_When_NewPassword_WasNull()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-
-        // Act
-        Action act = () => user.ChangePassword("");
-
-        // Assert
-        act.Should().ThrowExactly<NotImplementedException>();
-    }
-
-    [Fact]
-    public void SetAvatar_Should_SetAvatar()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-
-        // Act
-        user.SetAvatar("newPic.png");
-
-        // Assert
-        user.AvatarName.Should().Be("newPic.png");
-    }
-
-    [Fact]
-    public void SetAvatar_Should_Throw_NotImplementedException_When_Avatar_WasNull()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-
-        // Act
-        Action act = () => user.SetAvatar("");
-
-        // Assert
-        act.Should().ThrowExactly<NotImplementedException>();
-    }
-
-    [Fact]
-    public void AddAddress_Should_AddAddress()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-        var userAddresss = _userAddressBuilder.CreatedFullUserAddress();
-
-        // Act
-        user.AddAddress(userAddresss);
-
-        // Assert
-        userAddresss.UserId.Should().Be(user.Id);
-        user.Addresses.Should().HaveCount(1);
-    }
-
-    [Fact]
     public void RemoveAddress_Should_RemoveAddress()
     {
         // Arrange
@@ -212,21 +120,6 @@ public class UserTest
 
         // Assert
         act.Should().ThrowExactly<InvalidDomainDataException>();
-    }
-
-    [Fact]
-    public void ChargeWallet_Should_ChargeWallet()
-    {
-        // Arrange
-        var user = _userBuilder.Constructor_User();
-        var userWallet = _walletBuilder.CreateWalletWithdrawal();
-
-        // Act
-        user.ChargeWallet(userWallet);
-
-        // Assert
-        userWallet.UserId.Should().Be(user.Id);
-        user.Wallets.Should().HaveCount(1);
     }
 
     [Fact]

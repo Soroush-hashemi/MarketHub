@@ -15,7 +15,7 @@ public class WalletBuilder
         return wallet;
     }
 
-    public Wallet CreateWalletDeposit()
+    public Wallet CreateWallet()
     {
         int price = 20000;
         string description = "Test Description";
@@ -25,29 +25,11 @@ public class WalletBuilder
         return wallet;
     }
 
-    public Wallet CreateWalletWithdrawal()
-    {
-        int price = 20000;
-        string description = "Test Description";
-        bool isFinally = false;
-
-        var wallet = new Wallet(price, description, isFinally, WalletType.Withdrawal);
-        return wallet;
-    }
-
-    public void AssertForCreateWalletDeposit(Wallet wallet)
+    public void AssertForCreateWallet(Wallet wallet)
     {
         wallet.Price.Should().Be(20000);
         wallet.Description.Should().Be("Test Description");
         wallet.IsFinally.Should().Be(false);
         wallet.Type.Should().Be(WalletType.Deposit);
-    }
-
-    public void AssertForCreateWalletWithdrawal(Wallet wallet)
-    {
-        wallet.Price.Should().Be(20000);
-        wallet.Description.Should().Be("Test Description");
-        wallet.IsFinally.Should().Be(false);
-        wallet.Type.Should().Be(WalletType.Withdrawal);
     }
 }

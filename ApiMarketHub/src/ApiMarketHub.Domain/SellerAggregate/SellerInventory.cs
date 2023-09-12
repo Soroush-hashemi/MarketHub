@@ -12,9 +12,7 @@ public class SellerInventory : BaseEntity
 
     public SellerInventory(long productId, int count, int price, int? discountPercentage = null)
     {
-        if (price < 1 || count < 0)
-            throw new InvalidDomainDataException();
-
+        Guard(count, price);
         ProductId = productId;
         Count = count;
         Price = price;
@@ -23,11 +21,15 @@ public class SellerInventory : BaseEntity
 
     public void Edit(int count, int price, int? discountPercentage = null)
     {
-        if (price < 1 || count < 0)
-            throw new InvalidDomainDataException();
-
+        Guard(count, price);
         Count = count;
         Price = price;
         DiscountPercentage = discountPercentage;
+    }
+
+    public void Guard(int count, int price)
+    {
+        if (price < 1 || count < 0)
+            throw new InvalidDomainDataException();
     }
 }

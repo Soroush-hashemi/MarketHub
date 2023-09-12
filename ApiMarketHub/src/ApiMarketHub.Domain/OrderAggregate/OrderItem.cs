@@ -11,7 +11,7 @@ public class OrderItem : BaseEntity
     public int TotalPrice => Price * Count;
     public OrderItem(long inventoryId, int count, int price)
     {
-        PriceGuard(price);
+        PriceGuard(price);  
         CountGuard(count);
 
         InventoryId = inventoryId;

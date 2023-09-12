@@ -76,8 +76,8 @@ public class Product : AggregateRoot
 
     public void SetSpecification(List<ProductSpecification> specifications)
     {
-        specifications.ForEach(s => s.ProductId = Id);
-        Specifications = specifications;
+        specifications.ForEach(s => s.ProductId = Id); // تمام مقادیری که ایدی اونا با پروداکت ما یکی هست رو پیدا میکنه 
+        Specifications = specifications; // و در اینجا ستش میکنه 
     }
 
     private void Guard(string title, string slug, string description, IProductDomainService domainService)

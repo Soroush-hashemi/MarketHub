@@ -26,27 +26,27 @@ public class WalletTest
     public void Constructor_Should_Create_New_Wallet_With_WalletDeposit()
     {
         // Arrange & Act
-        var wallet = _walletBuilder.CreateWalletDeposit();
+        var wallet = _walletBuilder.CreateWallet();
 
         // Assert
-        _walletBuilder.AssertForCreateWalletDeposit(wallet);
+        _walletBuilder.AssertForCreateWallet(wallet);
     }
 
     [Fact]
     public void Constructor_Should_Create_New_Wallet_With_WalletWithdrawal()
     {
         // Arrange & Act
-        var wallet = _walletBuilder.CreateWalletWithdrawal();
+        var wallet = _walletBuilder.CreateWallet();
 
         // Assert
-        _walletBuilder.AssertForCreateWalletWithdrawal(wallet);
+        _walletBuilder.AssertForCreateWallet(wallet);
     }
 
     [Fact]
     public void Finally_With_RefCode()
     {
         // Arrange
-        var wallet = _walletBuilder.CreateWalletWithdrawal();
+        var wallet = _walletBuilder.CreateWallet();
 
         // Act
         wallet.Finally("321456");
@@ -55,18 +55,5 @@ public class WalletTest
         wallet.IsFinally.Should().BeTrue();
         wallet.Description.Should().Be("Test Description'\n کد پیگیری : 321456");
 
-    }
-
-    [Fact]
-    public void Finally_Without_RefCode()
-    {
-        // Arrange
-        var wallet = _walletBuilder.CreateWalletDeposit();
-
-        // Act
-        wallet.Finally();
-
-        // Assert
-        wallet.IsFinally.Should().BeTrue();
     }
 }

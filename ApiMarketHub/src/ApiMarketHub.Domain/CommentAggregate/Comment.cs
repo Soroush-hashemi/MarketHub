@@ -14,7 +14,6 @@ public class Comment : AggregateRoot
     public Comment(long userId, long productId, string text)
     {
         NullOrEmptyException.CheckString(text, nameof(text));
-
         UserId = userId;
         ProductId = productId;
         Text = text;
@@ -24,7 +23,6 @@ public class Comment : AggregateRoot
     public void Edit(string text)
     {
         NullOrEmptyException.CheckString(text, nameof(text));
-
         Text = text;
         UpdateDate = DateTime.Now;
     }
@@ -34,5 +32,4 @@ public class Comment : AggregateRoot
         Status = status;
         UpdateDate = DateTime.Now;
     }
-
 }

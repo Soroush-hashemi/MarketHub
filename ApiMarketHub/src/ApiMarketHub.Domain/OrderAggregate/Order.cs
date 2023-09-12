@@ -114,6 +114,7 @@ public class Order : AggregateRoot
         ShippingMethod = shippingMethod;
     }
 
+    // rename
     public void ChangeOrderGuard()
     {
         if (Status != OrderStatus.Pending)

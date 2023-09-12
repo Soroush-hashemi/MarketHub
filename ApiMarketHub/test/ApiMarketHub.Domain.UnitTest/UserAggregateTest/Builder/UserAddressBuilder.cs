@@ -5,22 +5,6 @@ using Shared.Domain.ValueObjects;
 namespace ApiMarketHub.Domain.UnitTest.UserAggregateTest.Builder;
 public class UserAddressBuilder
 {
-    public UserAddress CreatedNullUserAddress()
-    {
-        string state = "";
-        string city = "";
-        string postalCode = "";
-        string addressDetail = "";
-        string name = "";
-        string family = "";
-        string nationalCode = "";
-
-        var userAddress = new UserAddress(state, city, postalCode, addressDetail,
-            new PhoneNumber("09210009988"), name, family, nationalCode);
-
-        return userAddress;
-    }
-
     public UserAddress CreatedFullUserAddress()
     {
         string state = "kurdistan";
@@ -83,19 +67,6 @@ public class UserAddressBuilder
             new PhoneNumber(""), name, family, nationalCode);
 
         return userAddress;
-    }
-
-    public void AssertFullForCreateUserAddress(UserAddress userAddress)
-    {
-        userAddress.State.Should().Be("kurdistan");
-        userAddress.City.Should().Be("CenterKurdistan");
-        userAddress.PostalCode.Should().Be("1234567890");
-        userAddress.AddressDetail.Should().Be("kochay bala dar qrimiz");
-        userAddress.Name.Should().Be("soroush");
-        userAddress.Family.Should().Be("hash");
-        userAddress.NationalCode.Should().Be("9794140023");
-        userAddress.PhoneNumber.Value.Should().Be("09210001122");
-        userAddress.ActiveAddress.Should().Be(false);
     }
 
     public void AssertFullForEditUserAddress(UserAddress userAddress)

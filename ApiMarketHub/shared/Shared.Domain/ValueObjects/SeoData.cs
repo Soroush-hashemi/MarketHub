@@ -20,8 +20,7 @@ public class SeoData : BaseValueObject
 
     }
 
-    public SeoData(string? metaKeyWords, string? metaDescription, string? metaTitle, bool indexPage, string? canonical,
-        string schema)
+    public SeoData(string? metaKeyWords, string? metaDescription, string? metaTitle, bool indexPage, string? canonical,string schema)
     {
         MetaKeyWords = metaKeyWords;
         MetaDescription = metaDescription;
