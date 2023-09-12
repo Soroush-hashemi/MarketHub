@@ -1,11 +1,9 @@
-﻿using ApiMarketHub.Domain.CategoryAggregate.Service;
-using ApiMarketHub.Domain.ProductAggregate;
+﻿using ApiMarketHub.Domain.ProductAggregate;
 using ApiMarketHub.Domain.ProductAggregate.Service;
 using FluentAssertions;
 using NSubstitute;
 using Shared.Domain.Exceptions;
 using Shared.Domain.ValueObjects;
-using System;
 using Xunit;
 
 namespace ApiMarketHub.Domain.UnitTest.ProductAggregateTest;

@@ -26,7 +26,6 @@ public class Seller : AggregateRoot
         StoreName = shopName;
         NationalCode = nationalCode;
         Inventories = new List<SellerInventory>();
-
         if (domainService.IsValidSellerInformation(this) == false)
             throw new InvalidDomainDataException("the information is invalid");
     }
@@ -41,7 +40,7 @@ public class Seller : AggregateRoot
     {
         Guard(shopName, nationalCode);
         if (nationalCode != NationalCode)
-            if (domainService.NationalCodeExistInDataBase(nationalCode))
+            if (domainService.NationalCodeExistInDataBase(nationalCode) == false)
                 throw new InvalidDomainDataException("the code belongs to someone else");
 
         StoreName = shopName;
@@ -70,6 +69,7 @@ public class Seller : AggregateRoot
     {
         NullOrEmptyException.CheckString(shopName, nameof(shopName));
         NullOrEmptyException.CheckString(nationalCode, nameof(nationalCode));
+
         if (IranianNationalIdChecker.IsValid(nationalCode) == false)
             throw new InvalidDomainDataException("national code is invalid");
     }
