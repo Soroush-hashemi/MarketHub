@@ -21,11 +21,13 @@ public class OrderItem : BaseEntity
 
     public void IncreaseCount(int count)
     {
+        CountGuard(count);
         Count += count;
     }
 
     public void DecreaseCount(int count)
     {
+        CountGuard(count);
         if (Count == 0)
             return;
         if (Count == 1)
@@ -47,7 +49,7 @@ public class OrderItem : BaseEntity
 
     public void PriceGuard(int NewPrice)
     {
-        if (NewPrice < 1)
+        if (NewPrice <= 1)
             throw new InvalidDomainDataException("price is invalid");
     }
 

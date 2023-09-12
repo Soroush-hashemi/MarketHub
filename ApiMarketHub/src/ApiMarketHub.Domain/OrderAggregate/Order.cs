@@ -7,17 +7,6 @@ using Shared.Domain.Exceptions;
 namespace ApiMarketHub.Domain.OrderAggregate;
 public class Order : AggregateRoot
 {
-    private Order()
-    {
-    }
-
-    public Order(long userId)
-    {
-        UserId = userId;
-        Status = OrderStatus.Pending;
-        Items = new List<OrderItem>();
-    }
-
     public long UserId { get; private set; }
     public OrderStatus Status { get; private set; }
     public OrderDiscount? Discount { get; private set; }
@@ -41,6 +30,19 @@ public class Order : AggregateRoot
             return totalPrice;
         }
     }
+
+    private Order()
+    {
+
+    }
+
+    public Order(long userId)
+    {
+        UserId = userId;
+        Status = OrderStatus.Pending;
+        Items = new List<OrderItem>();
+    }
+
 
     public void AddItem(OrderItem item)
     {

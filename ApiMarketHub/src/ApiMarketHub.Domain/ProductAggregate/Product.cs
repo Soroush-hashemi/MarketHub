@@ -87,7 +87,7 @@ public class Product : AggregateRoot
         NullOrEmptyException.CheckString(slug, nameof(slug));
 
         if (slug != Slug)
-            if (domainService.SlugIsExist(slug.ToSlug()))
+            if (domainService.SlugIsExist(slug.ToSlug()) == false)
                 throw new SlugAlreadyExistsException();
     }
 }

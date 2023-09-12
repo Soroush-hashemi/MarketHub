@@ -23,7 +23,7 @@ public class UserTest
     }
 
     [Fact]
-    public void RemoveAddress_Should_RemoveAddress()
+    public void RemoveAddress_Should_RemoveAddress_When_IsUserAddressExist_Service_IsFalse()
     {
         // Arrange
         var user = _userBuilder.Constructor_User();
@@ -56,7 +56,7 @@ public class UserTest
     }
 
     [Fact]
-    public void EditAddress_Should_EditAddress()
+    public void EditAddress_Should_EditAddress_When_IsUserAddressExist_Service_IsFalse()
     {
         // Arrange
         var user = _userBuilder.Constructor_User();
@@ -94,7 +94,7 @@ public class UserTest
     }
 
     [Fact]
-    public void SetActiveAddress()
+    public void SetActiveAddress_When_currentAddress_IsNot_Null()
     {
         // Arrange
         var user = _userBuilder.Constructor_User();

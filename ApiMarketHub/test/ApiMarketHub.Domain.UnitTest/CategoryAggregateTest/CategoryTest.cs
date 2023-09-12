@@ -38,7 +38,7 @@ public class CategoryTest
     }
 
     [Fact]
-    public void IsSlugExist_Should_Throw_SlugAlreadyExistsException_When_DateWas_Null()
+    public void IsSlugExist_Should_Throw_SlugAlreadyExistsException_When_DataWas_Null()
     {
         // Arrange
         var seoDate = new SeoData("test", "test", "test", true, "test", "test");
