@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiMarketHub\shared\Shared.Domain\Shared.Domain.csproj" />
+    <ProjectReference Include="..\..\shared\Shared.Domain\Shared.Domain.csproj" />
   </ItemGroup>
 
 </Project>

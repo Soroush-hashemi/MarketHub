@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Shared.Domain.Tools;
-using System;
 using Xunit;
 
 namespace Shared.Domain.UnitTest.Tools;
