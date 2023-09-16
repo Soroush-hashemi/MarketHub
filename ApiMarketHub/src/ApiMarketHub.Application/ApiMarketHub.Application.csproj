@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Categories\Edit\" />
-    <Folder Include="Categories\AddChild\" />
     <Folder Include="Categories\Remove\" />
     <Folder Include="Comments\Create\" />
     <Folder Include="Comments\Edit\" />
