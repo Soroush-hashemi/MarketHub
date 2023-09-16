@@ -20,6 +20,7 @@ public class EditCategoryCommandHandler : IBaseCommandHandler<EditCategoryComman
         if (category == null)
             return OperationResult.NotFound();
 
+        _categoryRepository.Update(category);
         category.Edit(request.title, request.slug, request.seoData, _domainService);
         await _categoryRepository.Save();
         return OperationResult.Success();
