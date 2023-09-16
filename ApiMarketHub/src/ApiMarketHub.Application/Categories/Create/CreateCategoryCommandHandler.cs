@@ -8,10 +8,10 @@ public class CreateCategoryCommandHandler : IBaseCommandHandler<CreateCategoryCo
 {
     private readonly ICategoryRepository _categoryRepository;
     private readonly ICategoryDomainService _domainService;
-    public CreateCategoryCommandHandler(ICategoryRepository categoryRepository, ICategoryDomainService categoryDomainService)
+    public CreateCategoryCommandHandler(ICategoryRepository categoryRepository, ICategoryDomainService domainService)
     {
         _categoryRepository = categoryRepository;
-        _domainService = categoryDomainService;
+        _domainService = domainService;
     }
 
     public async Task<OperationResult<long>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)

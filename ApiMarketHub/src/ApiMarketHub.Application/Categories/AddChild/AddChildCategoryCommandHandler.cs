@@ -1,5 +1,4 @@
-﻿using ApiMarketHub.Domain.CategoryAggregate;
-using ApiMarketHub.Domain.CategoryAggregate.Repository;
+﻿using ApiMarketHub.Domain.CategoryAggregate.Repository;
 using ApiMarketHub.Domain.CategoryAggregate.Service;
 using Shared.Application;
 
