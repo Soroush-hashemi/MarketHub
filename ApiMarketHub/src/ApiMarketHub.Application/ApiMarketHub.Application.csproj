@@ -6,4 +6,50 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Categories\Edit\" />
+    <Folder Include="Categories\AddChild\" />
+    <Folder Include="Categories\Remove\" />
+    <Folder Include="Comments\Create\" />
+    <Folder Include="Comments\Edit\" />
+    <Folder Include="Comments\ChangeStatus\" />
+    <Folder Include="Comments\Remove\" />
+    <Folder Include="Orders\DecreaseItemCount\" />
+    <Folder Include="Orders\Checkout\" />
+    <Folder Include="Orders\AddItem\" />
+    <Folder Include="Orders\Finally\" />
+    <Folder Include="Orders\IncreaseItemCount\" />
+    <Folder Include="Orders\SendOrder\" />
+    <Folder Include="Orders\RemoveItem\" />
+    <Folder Include="Products\Create\" />
+    <Folder Include="Products\Edit\" />
+    <Folder Include="Products\AddImage\" />
+    <Folder Include="Products\RemoveImage\" />
+    <Folder Include="Roles\Create\" />
+    <Folder Include="Roles\Edit\" />
+    <Folder Include="Sellers\Create\" />
+    <Folder Include="Sellers\Edit\" />
+    <Folder Include="Sellers\AddInventory\" />
+    <Folder Include="Sellers\EditInventory\" />
+    <Folder Include="SideEntities\Posters\" />
+    <Folder Include="SideEntities\ShippingMethods\" />
+    <Folder Include="SideEntities\Sliders\" />
+    <Folder Include="Users\Create\" />
+    <Folder Include="Users\Edit\" />
+    <Folder Include="Users\EditAddress\" />
+    <Folder Include="Users\DeleteAddress\" />
+    <Folder Include="Users\ChargeWallet\" />
+    <Folder Include="Users\ChangePassword\" />
+    <Folder Include="Users\AddToken\" />
+    <Folder Include="Users\AddAddress\" />
+    <Folder Include="Users\Register\" />
+    <Folder Include="Users\RemoveToken\" />
+    <Folder Include="Users\SetActiveAddress\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Shared.Application\Shared.Application.csproj" />
+    <ProjectReference Include="..\ApiMarketHub.Domain\ApiMarketHub.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

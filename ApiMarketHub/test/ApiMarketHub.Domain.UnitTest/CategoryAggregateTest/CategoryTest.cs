@@ -50,5 +50,4 @@ public class CategoryTest
         // Assert
         act.Should().ThrowExactly<SlugAlreadyExistsException>();
     }
-
 }
