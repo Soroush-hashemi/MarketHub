@@ -7,7 +7,9 @@ namespace Shared.Application.SecurityUtil
     {
         public static bool IsImage(this IFormFile? file)
         {
-            if (file == null) return false;
+            if (file == null) 
+                return false;
+
             try
             {
                 var img = Image.FromStream(file.OpenReadStream());

@@ -38,6 +38,7 @@
             };
         }
     }
+
     public class OperationResult
     {
         public const string SuccessMessage = "عملیات با موفقیت انجام شد";
