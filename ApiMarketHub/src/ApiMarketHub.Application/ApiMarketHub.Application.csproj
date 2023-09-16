@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Categories\Remove\" />
     <Folder Include="Comments\Edit\" />
-    <Folder Include="Comments\ChangeStatus\" />
     <Folder Include="Comments\Remove\" />
     <Folder Include="Orders\DecreaseItemCount\" />
     <Folder Include="Orders\Checkout\" />
