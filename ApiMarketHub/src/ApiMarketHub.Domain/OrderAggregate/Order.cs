@@ -43,15 +43,14 @@ public class Order : AggregateRoot
         Items = new List<OrderItem>();
     }
 
-
     public void AddItem(OrderItem item)
     {
         ChangeOrderGuard();
-        var previousItem = Items.FirstOrDefault(i => i.InventoryId == item.InventoryId);
+        var previousItem = Items.FirstOrDefault(i => i.InventoryId == item.InventoryId); // ... اگر محصول خریداری شده موجود بود 
 
         if (previousItem != null)
         {
-            previousItem.ChangeCount(item.Count + previousItem.Count);
+            previousItem.ChangeCount(item.Count + previousItem.Count); // تعدادش رو زیاد میکنیم 
             return;
         }
 

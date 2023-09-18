@@ -17,7 +17,6 @@ public class EditCommentCommandHandler : IBaseCommandHandler<EditCommentCommand>
             return OperationResult.NotFound();
 
         comment.Edit(request.text);
-        _commentRepository.Update(comment);
         await _commentRepository.Save();
         return OperationResult.Success();
     }
