@@ -3,4 +3,5 @@
 namespace ApiMarketHub.Domain.CommentAggregate.Repository;
 public interface ICommentRepository : IBaseRepository<Comment>
 {
+    Task DeleteAndSave(Comment comment);
 }
