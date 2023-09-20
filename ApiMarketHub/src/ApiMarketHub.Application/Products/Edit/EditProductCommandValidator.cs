@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using Shared.Application;
 using Shared.Application.Validation;
+using Shared.Application.Validation.FluentValidations;
 
 namespace ApiMarketHub.Application.Products.Edit;
 public class EditProductCommandValidator : AbstractValidator<EditProductCommand>
@@ -13,7 +13,6 @@ public class EditProductCommandValidator : AbstractValidator<EditProductCommand>
 
         RuleFor(r => r.Description).NotEmpty().WithMessage(ValidationMessages.required("توضیحات"));
 
-        RuleFor(r => r.ImageName).JustImageFile();
-
+        RuleFor(r => r.ImageFile).JustImageFile();
     }
 }
