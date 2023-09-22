@@ -5,8 +5,8 @@ using Shared.Domain.Exceptions;
 namespace ApiMarketHub.Domain.SideEntities;
 public class Poster : BaseEntity
 {
-    public string Link { get; private set; }
-    public string ImageName { get; private set; }
+    public string Link { get; set; }
+    public string ImageName { get; set; }
     public PosterPosition Position { get; set; }
 
     public Poster(string link, string imageName, PosterPosition position)

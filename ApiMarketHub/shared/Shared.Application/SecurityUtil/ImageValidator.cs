@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace Shared.Application.SecurityUtil
 {
-    public static class ImageValidator
+    public static class ImageValidator 
     {
-        public static bool IsImage(this IFormFile? file)
+        public static bool IsImage(this IFormFile? file) // اعتبار سنجی تصاویر رو چک میکنه
         {
             if (file == null) 
                 return false;
