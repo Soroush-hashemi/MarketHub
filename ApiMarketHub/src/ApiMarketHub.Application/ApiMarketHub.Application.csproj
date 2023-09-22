@@ -11,9 +11,12 @@
     <Folder Include="Sellers\Edit\" />
     <Folder Include="Sellers\AddInventory\" />
     <Folder Include="Sellers\EditInventory\" />
-    <Folder Include="SideEntities\Posters\" />
+    <Folder Include="SideEntities\Posters\Delete\" />
+    <Folder Include="SideEntities\Posters\Edit\" />
     <Folder Include="SideEntities\ShippingMethods\" />
-    <Folder Include="SideEntities\Sliders\" />
+    <Folder Include="SideEntities\Sliders\Create\" />
+    <Folder Include="SideEntities\Sliders\Delete\" />
+    <Folder Include="SideEntities\Sliders\Edit\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\Edit\" />
     <Folder Include="Users\EditAddress\" />
