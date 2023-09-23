@@ -13,7 +13,6 @@
     <Folder Include="Sellers\EditInventory\" />
     <Folder Include="SideEntities\ShippingMethods\" />
     <Folder Include="SideEntities\Sliders\Delete\" />
-    <Folder Include="SideEntities\Sliders\Edit\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\Edit\" />
     <Folder Include="Users\EditAddress\" />

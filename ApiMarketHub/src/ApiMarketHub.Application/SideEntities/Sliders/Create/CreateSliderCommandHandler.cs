@@ -18,7 +18,7 @@ public class CreateSliderCommandHandler : IBaseCommandHandler<CreateSliderComman
     public async Task<OperationResult> Handle(CreateSliderCommand request, CancellationToken cancellationToken)
     {
         var ImageName = await _fileService.SaveFileAndGenerateName(request.ImageFile, Directories.SliderImages);
-        var slider = new Slider(request.Title, request.Link, ImageName, request.IsActive);
+        var slider = new Slider(request.Title, request.Link, ImageName);
 
         _repository.Add(slider);
         await _repository.Save();
