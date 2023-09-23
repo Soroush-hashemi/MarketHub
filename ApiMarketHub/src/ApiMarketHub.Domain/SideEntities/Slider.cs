@@ -27,7 +27,6 @@ public class Slider : BaseEntity
         IsActive = isActive;
     }
 
-
     public void Guard(string title, string link, string imageName)
     {
         NullOrEmptyException.CheckString(title, nameof(title));
