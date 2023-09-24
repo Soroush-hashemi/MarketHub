@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Sellers\Create\" />
     <Folder Include="Sellers\Edit\" />
     <Folder Include="Sellers\AddInventory\" />
     <Folder Include="Sellers\EditInventory\" />
+    <Folder Include="Sellers\ChangeStatus\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\Edit\" />
     <Folder Include="Users\EditAddress\" />
