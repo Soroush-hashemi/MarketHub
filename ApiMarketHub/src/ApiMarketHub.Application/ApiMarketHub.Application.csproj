@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Sellers\Edit\" />
     <Folder Include="Sellers\AddInventory\" />
     <Folder Include="Sellers\EditInventory\" />
     <Folder Include="Sellers\ChangeStatus\" />
