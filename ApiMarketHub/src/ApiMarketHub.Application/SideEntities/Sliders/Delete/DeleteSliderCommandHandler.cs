@@ -8,7 +8,7 @@ public class DeleteSliderCommandHandler : IBaseCommandHandler<DeleteSliderComman
 {
     private readonly ISliderRepository _repository;
     private readonly IFileService _fileService;
-    public DeleteSliderCommandHandler(IPosterRepository repository, IFileService fileService)
+    public DeleteSliderCommandHandler(ISliderRepository repository, IFileService fileService)
     {
         _repository = repository;
         _fileService = fileService;

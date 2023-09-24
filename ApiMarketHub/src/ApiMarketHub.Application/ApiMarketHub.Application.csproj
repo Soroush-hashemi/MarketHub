@@ -11,7 +11,8 @@
     <Folder Include="Sellers\Edit\" />
     <Folder Include="Sellers\AddInventory\" />
     <Folder Include="Sellers\EditInventory\" />
-    <Folder Include="SideEntities\ShippingMethods\" />
+    <Folder Include="SideEntities\ShippingMethods\Delete\" />
+    <Folder Include="SideEntities\ShippingMethods\Edit\" />
     <Folder Include="Users\Create\" />
     <Folder Include="Users\Edit\" />
     <Folder Include="Users\EditAddress\" />
