@@ -20,7 +20,7 @@ public class UserBuilder
         Gender gender = Gender.MALE;
         string avatarName = "soroush.png";
 
-        var user = new User(name, family, phoneNumber, email, password, avatarName, gender, userDomainService);
+        var user = new User(name, family, phoneNumber, email, password, gender, userDomainService);
         return user;
     }
 }
