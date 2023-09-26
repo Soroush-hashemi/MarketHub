@@ -20,6 +20,7 @@ public class DeleteAddressUserCommandHandler : IBaseCommandHandler<DeleteAddress
             return OperationResult.NotFound();
 
         user.RemoveAddress(request.AddressId, _domainService);
+
         await _repository.Save();
         return OperationResult.Success();
     }
