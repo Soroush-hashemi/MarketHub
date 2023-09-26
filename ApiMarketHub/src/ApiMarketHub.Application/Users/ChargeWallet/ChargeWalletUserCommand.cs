@@ -1,10 +1,5 @@
 ﻿using ApiMarketHub.Domain.UserAggregate.Enums;
 using Shared.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiMarketHub.Application.Users.ChargeWallet;
 public class ChargeWalletUserCommand : IBaseCommand
@@ -14,4 +9,13 @@ public class ChargeWalletUserCommand : IBaseCommand
     public string Description { get; private set; }
     public bool IsFinally { get; private set; }
     public WalletType Type { get; private set; }
+
+    public ChargeWalletUserCommand(long userId, int price, string description, bool isFinally, WalletType type)
+    {
+        UserId = userId;
+        Price = price;
+        Description = description;
+        IsFinally = isFinally;
+        Type = type;
+    }
 }

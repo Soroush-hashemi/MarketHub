@@ -21,6 +21,6 @@ public class ChargeWalletUserCommandHandler : IBaseCommandHandler<ChargeWalletUs
 
         user.ChargeWallet(wallet);
         await _repository.Save();
-        return OperationResult.Success();
+        return OperationResult.Success(); 
     }
 }

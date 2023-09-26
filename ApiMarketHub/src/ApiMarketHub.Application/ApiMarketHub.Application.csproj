@@ -11,7 +11,6 @@
     <Folder Include="Users\DeleteAddress\" />
     <Folder Include="Users\ChangePassword\" />
     <Folder Include="Users\AddToken\" />
-    <Folder Include="Users\AddAddress\" />
     <Folder Include="Users\Register\" />
     <Folder Include="Users\RemoveToken\" />
     <Folder Include="Users\SetActiveAddress\" />
