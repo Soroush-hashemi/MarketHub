@@ -30,7 +30,8 @@ public class User : AggregateRoot
     public List<UserAddress> Addresses { get; }
     public List<UserToken> Tokens { get; }
 
-    public User(string name, string family, PhoneNumber phoneNumber, string email, string password, Gender gender, IUserDomainService userDomainService)
+    public User(string name, string family, PhoneNumber phoneNumber, string email,
+        string password, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -39,7 +40,7 @@ public class User : AggregateRoot
         Email = email;
         Password = password;
         Gender = gender;
-
+        AvatarName = "avatar.png";
         IsActive = true;
         Roles = new();
         Wallets = new();
