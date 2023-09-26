@@ -30,9 +30,7 @@ public class User : AggregateRoot
     public List<UserAddress> Addresses { get; }
     public List<UserToken> Tokens { get; }
 
-
-    public User(string name, string family, PhoneNumber phoneNumber, string email,
-        string password, string avatarName, Gender gender, IUserDomainService userDomainService)
+    public User(string name, string family, PhoneNumber phoneNumber, string email, string password, Gender gender, IUserDomainService userDomainService)
     {
         Guard(phoneNumber, email, userDomainService);
         Name = name;
@@ -41,9 +39,7 @@ public class User : AggregateRoot
         Email = email;
         Password = password;
         Gender = gender;
-        if (avatarName == null)
-            AvatarName = "avatar.png";
-        AvatarName = avatarName;
+
         IsActive = true;
         Roles = new();
         Wallets = new();
@@ -70,7 +66,7 @@ public class User : AggregateRoot
 
     public static User RegisterUser(PhoneNumber phoneNumber, string password, IUserDomainService userDomainService)
     {
-        return new User("", "", phoneNumber, null, password, "", Gender.NONE, userDomainService);
+        return new User("", "", phoneNumber, null, password, Gender.NONE, userDomainService);
     }
 
     public void SetAvatar(string avatarImage)
