@@ -6,11 +6,9 @@ namespace ApiMarketHub.Application.Users.DeleteAddress;
 public class DeleteAddressUserCommandHandler : IBaseCommandHandler<DeleteAddressUserCommand>
 {
     private readonly IUserRepository _repository;
-    private readonly IUserDomainService _domainService;
-    public DeleteAddressUserCommandHandler(IUserRepository repository, IUserDomainService domainService)
+    public DeleteAddressUserCommandHandler(IUserRepository repository)
     {
         _repository = repository;
-        _domainService = domainService;
     }
 
     public async Task<OperationResult> Handle(DeleteAddressUserCommand request, CancellationToken cancellationToken)
@@ -19,7 +17,7 @@ public class DeleteAddressUserCommandHandler : IBaseCommandHandler<DeleteAddress
         if (user == null)
             return OperationResult.NotFound();
 
-        user.RemoveAddress(request.AddressId, _domainService);
+        user.RemoveAddress(request.AddressId);
 
         await _repository.Save();
         return OperationResult.Success();

@@ -29,11 +29,10 @@ public class UserTest
         var user = _userBuilder.Constructor_User();
         var userAddresss = _userAddressBuilder.CreatedFullUserAddress();
         var userDomainService = Substitute.For<IUserDomainService>();
-        userDomainService.IsUserAddressExist(Arg.Any<long>()).Returns(true);
 
         // Act
         user.AddAddress(userAddresss);
-        user.RemoveAddress(userAddresss.Id, userDomainService);
+        user.RemoveAddress(userAddresss.Id);
 
         // Assert
         user.Addresses.Should().HaveCount(0);
@@ -45,11 +44,9 @@ public class UserTest
     {
         // Arrange
         var user = _userBuilder.Constructor_User();
-        var userDomainService = Substitute.For<IUserDomainService>();
-        userDomainService.IsUserAddressExist(Arg.Any<long>()).Returns(false);
 
         // Act
-        Action act = () => user.RemoveAddress(1, userDomainService);
+        Action act = () => user.RemoveAddress(1);
 
         // Assert
         act.Should().ThrowExactly<InvalidDomainDataException>();
@@ -62,12 +59,10 @@ public class UserTest
         var user = _userBuilder.Constructor_User();
         var userAddress = _userAddressBuilder.CreatedFullUserAddress();
         var userAddresssEdited = _userAddressBuilder.EditFullUserAddress();
-        var userDomainService = Substitute.For<IUserDomainService>();
-        userDomainService.IsUserAddressExist(Arg.Any<long>()).Returns(true);
 
         // Act
         user.AddAddress(userAddress);
-        user.EditAddress(userAddresssEdited, userAddresssEdited.Id, userDomainService);
+        user.EditAddress(userAddresssEdited, userAddresssEdited.Id);
 
         // Assert
         _userAddressBuilder.AssertFullForEditUserAddress(userAddresssEdited);
@@ -80,14 +75,12 @@ public class UserTest
         var user = _userBuilder.Constructor_User();
         var userAddress = _userAddressBuilder.CreatedFullUserAddress();
         var NullUserAddress = _userAddressBuilder.EditFullUserAddress();
-        var userDomainService = Substitute.For<IUserDomainService>();
-        userDomainService.IsUserAddressExist(Arg.Any<long>()).Returns(false);
 
         long nonExistentUserId = 12345;
         userAddress.Id = nonExistentUserId; // بعد از ادد شدن یوزر ایدی به این ایدی داده میشه
 
         // Act
-        Action act = () => user.EditAddress(NullUserAddress, nonExistentUserId, userDomainService);
+        Action act = () => user.EditAddress(NullUserAddress, nonExistentUserId);
 
         // Assert
         act.Should().ThrowExactly<InvalidDomainDataException>();
@@ -107,7 +100,6 @@ public class UserTest
         // Assert
         user.IsActive.Should().Be(true);
     }
-
 
     [Fact]
     public void SetActiveAddress_Throw_InvalidDomainDataException_When_AddressWasNotFound()

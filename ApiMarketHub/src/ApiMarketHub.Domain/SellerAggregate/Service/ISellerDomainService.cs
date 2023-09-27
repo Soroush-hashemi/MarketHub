@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ApiMarketHub.Domain.SellerAggregate.Service;
+﻿namespace ApiMarketHub.Domain.SellerAggregate.Service;
 public interface ISellerDomainService
 {
     bool IsValidSellerInformation(Seller seller);

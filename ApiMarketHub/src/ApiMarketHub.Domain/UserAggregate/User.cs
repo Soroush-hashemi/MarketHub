@@ -82,18 +82,18 @@ public class User : AggregateRoot
         Addresses.Add(address);
     }
 
-    public void RemoveAddress(long AddressId, IUserDomainService userDomainService)
+    public void RemoveAddress(long AddressId)
     {
         var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
-        if (userDomainService.IsUserAddressExist(AddressId) == false)
+        if (previousAddress == null)
             throw new InvalidDomainDataException("Address not found");
         Addresses.Remove(previousAddress);
     }
 
-    public void EditAddress(UserAddress address, long AddressId, IUserDomainService userDomainService)
+    public void EditAddress(UserAddress address, long AddressId)
     {
         var previousAddress = Addresses.FirstOrDefault(a => a.Id == AddressId);
-        if (userDomainService.IsUserAddressExist(AddressId) == false)
+        if (previousAddress == null)
             throw new InvalidDomainDataException("Address not found");
 
         // از ادرس قدیمی استفاده میکنیم چون جنسش از آدرسه و نیاز نیست یه وار جدید بسازیم 
@@ -131,7 +131,7 @@ public class User : AggregateRoot
     public void Guard(PhoneNumber phoneNumber, string email, IUserDomainService userDomainService)
     {
         if (phoneNumber.Value.Length != 11)
-            if (userDomainService.IsPhoneNumberExist(phoneNumber))
+            if (userDomainService.IsPhoneNumberExist(phoneNumber) == false)
                 throw new InvalidDomainDataException("PhoneNumber Is Invalid");
 
         if (!string.IsNullOrWhiteSpace(email))
