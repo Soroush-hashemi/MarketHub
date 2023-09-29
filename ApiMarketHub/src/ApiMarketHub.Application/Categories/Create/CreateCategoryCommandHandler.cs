@@ -17,6 +17,7 @@ public class CreateCategoryCommandHandler : IBaseCommandHandler<CreateCategoryCo
     public async Task<OperationResult<long>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = new Category(request.title, request.slug, request.seoData, _domainService);
+
         _categoryRepository.Add(category);
         await _categoryRepository.Save();
         return OperationResult<long>.Success(category.Id);

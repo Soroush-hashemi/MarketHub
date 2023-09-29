@@ -15,6 +15,6 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 
         RuleFor(f => f.Password).NotEmpty().WithMessage(ValidationMessages.required("کلمه عبور"))
             .NotNull().WithMessage(ValidationMessages.required("کلمه عبور"))
-            .MinimumLength(4).WithMessage("کلمه عبور باید بشتر از 4 کارکتر باشد");
+            .MinimumLength(4).WithMessage(ValidationMessages.minLength("کلمه عبور", 4));
     }
 }

@@ -1,7 +1,6 @@
 ﻿using ApiMarketHub.Domain.CategoryAggregate.Repository;
 using ApiMarketHub.Domain.CategoryAggregate.Service;
 using Shared.Application;
-using System;
 
 namespace ApiMarketHub.Application.Categories.Edit;
 public class EditCategoryCommandHandler : IBaseCommandHandler<EditCategoryCommand>

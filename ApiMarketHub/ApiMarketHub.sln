@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A1772E6D-C741-4951-B987-485377957332}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Application", "shared\Shared.Application\Shared.Application.csproj", "{50953A2A-E99D-40FA-89BD-8AB270C09FC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain", "shared\Shared.Domain\Shared.Domain.csproj", "{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{30597CEF-31D0-410D-923A-33A7FC409923}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Application", "src\ApiMarketHub.Application\ApiMarketHub.Application.csproj", "{2A4E612C-05FA-4BEA-A735-3FC42343F776}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Bootstrapper", "src\ApiMarketHub.Bootstrapper\ApiMarketHub.Bootstrapper.csproj", "{490AE360-50A4-482C-B707-A7CE91495F2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Domain", "src\ApiMarketHub.Domain\ApiMarketHub.Domain.csproj", "{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Infrastructure", "src\ApiMarketHub.Infrastructure\ApiMarketHub.Infrastructure.csproj", "{4C5DA594-9747-4C41-980A-D7651D8F5CDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.PresentationFacade", "src\ApiMarketHub.PresentationFacade\ApiMarketHub.PresentationFacade.csproj", "{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Query", "src\ApiMarketHub.Query\ApiMarketHub.Query.csproj", "{12A63BB6-E101-466D-A5F7-0A8EA6C52684}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5EFE77D7-DD7E-43B7-B397-1A801AC6B0F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Domain.UnitTest", "test\ApiMarketHub.Domain.UnitTest\ApiMarketHub.Domain.UnitTest.csproj", "{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain.UnitTest", "test\Shared.Domain.UnitTest\Shared.Domain.UnitTest.csproj", "{E47B30B8-7A61-4E46-B959-2E052CFADAAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50953A2A-E99D-40FA-89BD-8AB270C09FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50953A2A-E99D-40FA-89BD-8AB270C09FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50953A2A-E99D-40FA-89BD-8AB270C09FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50953A2A-E99D-40FA-89BD-8AB270C09FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4E612C-05FA-4BEA-A735-3FC42343F776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4E612C-05FA-4BEA-A735-3FC42343F776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4E612C-05FA-4BEA-A735-3FC42343F776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4E612C-05FA-4BEA-A735-3FC42343F776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490AE360-50A4-482C-B707-A7CE91495F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490AE360-50A4-482C-B707-A7CE91495F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490AE360-50A4-482C-B707-A7CE91495F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490AE360-50A4-482C-B707-A7CE91495F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C5DA594-9747-4C41-980A-D7651D8F5CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C5DA594-9747-4C41-980A-D7651D8F5CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C5DA594-9747-4C41-980A-D7651D8F5CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C5DA594-9747-4C41-980A-D7651D8F5CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A63BB6-E101-466D-A5F7-0A8EA6C52684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A63BB6-E101-466D-A5F7-0A8EA6C52684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A63BB6-E101-466D-A5F7-0A8EA6C52684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A63BB6-E101-466D-A5F7-0A8EA6C52684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47B30B8-7A61-4E46-B959-2E052CFADAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47B30B8-7A61-4E46-B959-2E052CFADAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47B30B8-7A61-4E46-B959-2E052CFADAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47B30B8-7A61-4E46-B959-2E052CFADAAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50953A2A-E99D-40FA-89BD-8AB270C09FC7} = {A1772E6D-C741-4951-B987-485377957332}
+		{71E14041-2D7C-4F31-AFBF-01FD3F63C4EC} = {A1772E6D-C741-4951-B987-485377957332}
+		{2A4E612C-05FA-4BEA-A735-3FC42343F776} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{490AE360-50A4-482C-B707-A7CE91495F2F} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{1A42DD0C-8A50-44F0-ABDA-D4BB38E321FC} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{4C5DA594-9747-4C41-980A-D7651D8F5CDD} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{C7792AF5-DC2D-4463-A5BA-7CAF71C1EA86} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{12A63BB6-E101-466D-A5F7-0A8EA6C52684} = {30597CEF-31D0-410D-923A-33A7FC409923}
+		{50936059-2D6B-4BA0-AAAC-60EC7E6FE31E} = {5EFE77D7-DD7E-43B7-B397-1A801AC6B0F2}
+		{E47B30B8-7A61-4E46-B959-2E052CFADAAB} = {5EFE77D7-DD7E-43B7-B397-1A801AC6B0F2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {452F865C-51C1-47B5-9B3C-D94E17ABF93D}
+	EndGlobalSection
+EndGlobal

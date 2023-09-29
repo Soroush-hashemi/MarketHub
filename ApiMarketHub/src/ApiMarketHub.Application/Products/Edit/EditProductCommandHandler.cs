@@ -24,6 +24,7 @@ public class EditProductCommandHandler : IBaseCommandHandler<EditProductCommand>
         var product = await _productRepository.GetTracking(request.ProductId);
         if (product == null)
             return OperationResult.NotFound();
+
         product.Edit(request.Title, request.Description, request.CategoryId, request.SubCategoryId,
                 request.SecondarySubCategoryId, request.Slug, _domainService, request.SeoData);
 
