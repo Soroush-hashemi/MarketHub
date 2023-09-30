@@ -6,7 +6,6 @@ using ApiMarketHub.Domain.UserAggregate.Service;
 using FluentAssertions;
 using NSubstitute;
 using Shared.Application;
-using FluentValidation.TestHelper;
 using Shared.Domain.ValueObjects;
 using Xunit;
 
@@ -30,7 +29,6 @@ public class CreateUserHandlerTest
         var result = await createUserHandler.Handle(createUserCommand, CancellationToken.None);
 
         // Assert
-        // استفاده از NSubstitute برای بررسی تعامل با موک‌ها
         userRepository.Received(1).Add(Arg.Any<User>());
         await userRepository.Received(1).Save();
 
