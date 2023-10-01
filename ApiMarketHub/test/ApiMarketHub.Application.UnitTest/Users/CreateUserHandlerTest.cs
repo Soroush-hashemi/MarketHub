@@ -14,7 +14,7 @@ namespace ApiMarketHub.Application.UnitTest.Users;
 public class CreateUserHandlerTest
 {
     [Fact]
-    public async Task CreateUserHandler_Should_CreateNewUser()
+    public async Task CreateUserHandler_Should_Create_New_User()
     {
         // Arrange
         var userRepository = Substitute.For<IUserRepository>();
@@ -31,7 +31,6 @@ public class CreateUserHandlerTest
         // Assert
         userRepository.Received(1).Add(Arg.Any<User>());
         await userRepository.Received(1).Save();
-
         result.Status.Should().Be(OperationResultStatus.Success);
     }
 

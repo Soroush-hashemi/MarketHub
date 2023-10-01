@@ -25,11 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Orders\" />
-    <Folder Include="Products\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\ApiMarketHub.Application\ApiMarketHub.Application.csproj" />
   </ItemGroup>
 

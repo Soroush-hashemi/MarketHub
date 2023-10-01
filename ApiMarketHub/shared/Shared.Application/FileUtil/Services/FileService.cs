@@ -1,12 +1,5 @@
-﻿using Shared.Application.Validation;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Shared.Application.FileUtil.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Application.FileUtil.Services
 {

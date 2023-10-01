@@ -8,7 +8,7 @@ using Shared.Application.FileUtil.Interfaces;
 namespace ApiMarketHub.Application.Products.Create;
 public class CreateProductCommandHandler : IBaseCommandHandler<CreateProductCommand>
 {
-    private IProductRepository _productRepository;
+    private readonly IProductRepository _productRepository;
     private readonly IFileService _fileService;
     private readonly IProductDomainService _domainService;
     public CreateProductCommandHandler(IProductRepository productRepository, IFileService fileService,
@@ -22,6 +22,7 @@ public class CreateProductCommandHandler : IBaseCommandHandler<CreateProductComm
     public async Task<OperationResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
         var imageName = await _fileService.SaveFileAndGenerateName(request.ImageName, Directories.ProductImages);
+
         var product = new Product(request.Title, imageName, request.Description, request.CategoryId,
                 request.SubCategoryId, request.SecondarySubCategoryId, _domainService, request.Slug, request.SeoData);
 

@@ -14,4 +14,18 @@ public class CreateProductCommand : IBaseCommand
     public string Slug { get; private set; }
     public SeoData SeoData { get; private set; }
     public Dictionary<string, string> Specifications { get; private set; }
+
+    public CreateProductCommand(string title, IFormFile imageName, string description, long categoryId, long subCategoryId,
+    long? secondarySubCategoryId, string slug, SeoData seoData, Dictionary<string, string> specifications)
+    {
+        Title = title;
+        ImageName = imageName;
+        Description = description;
+        CategoryId = categoryId;
+        SubCategoryId = subCategoryId;
+        SecondarySubCategoryId = secondarySubCategoryId;
+        Slug = slug;
+        SeoData = seoData;
+        Specifications = specifications;
+    }
 }
