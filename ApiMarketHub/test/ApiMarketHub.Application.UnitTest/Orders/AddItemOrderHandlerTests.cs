@@ -7,6 +7,8 @@ using ApiMarketHub.Domain.OrderAggregate;
 using ApiMarketHub.Domain.SellerAggregate.Repository;
 using Shared.Application;
 
+namespace ApiMarketHub.Application.UnitTest.Orders;
+
 public class AddItemOrderHandlerTests
 {
     [Fact]

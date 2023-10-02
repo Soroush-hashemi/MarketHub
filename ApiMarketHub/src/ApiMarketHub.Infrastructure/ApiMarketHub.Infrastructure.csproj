@@ -6,4 +6,29 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Command\CategoryAggregate\" />
+    <Folder Include="Persistence\Command\CommentAggregate\" />
+    <Folder Include="Persistence\Command\OrderAggregate\" />
+    <Folder Include="Persistence\Command\ProductAggregate\" />
+    <Folder Include="Persistence\Command\RoleAggregate\" />
+    <Folder Include="Persistence\Command\SellerAggregate\" />
+    <Folder Include="Persistence\Command\SideEntities\" />
+    <Folder Include="Persistence\Command\UserAggregate\" />
+    <Folder Include="Persistence\Query\" />
+    <Folder Include="Repositories\Base\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiMarketHub.Application\ApiMarketHub.Application.csproj" />
+  </ItemGroup>
+
 </Project>
