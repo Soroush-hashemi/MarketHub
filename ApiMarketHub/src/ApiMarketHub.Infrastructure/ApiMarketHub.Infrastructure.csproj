@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\Command\CategoryAggregate\" />
-    <Folder Include="Persistence\Command\CommentAggregate\" />
-    <Folder Include="Persistence\Command\OrderAggregate\" />
-    <Folder Include="Persistence\Command\ProductAggregate\" />
-    <Folder Include="Persistence\Command\RoleAggregate\" />
-    <Folder Include="Persistence\Command\SellerAggregate\" />
-    <Folder Include="Persistence\Command\SideEntities\" />
-    <Folder Include="Persistence\Command\UserAggregate\" />
     <Folder Include="Persistence\Query\" />
     <Folder Include="Repositories\Base\" />
   </ItemGroup>

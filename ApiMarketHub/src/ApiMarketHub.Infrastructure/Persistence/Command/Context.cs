@@ -8,7 +8,7 @@ using ApiMarketHub.Domain.SideEntities;
 using ApiMarketHub.Domain.UserAggregate;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiMarketHub.Infrastructure.Persistence;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 public class Context : DbContext
 {
     /*
