@@ -12,6 +12,6 @@ public class SliderRepository : BaseRepository<Slider>, ISliderRepository
 
     public void Delete(Slider slider)
     {
-        throw new NotImplementedException();
+        _context.Sliders.Remove(slider);
     }
 }

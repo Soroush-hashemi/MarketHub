@@ -13,6 +13,6 @@ public class PosterRepository : BaseRepository<Poster>, IPosterRepository
 
     public void Delete(Poster poster)
     {
-        throw new NotImplementedException();
+        _context.Poster.Remove(poster);
     }
 }

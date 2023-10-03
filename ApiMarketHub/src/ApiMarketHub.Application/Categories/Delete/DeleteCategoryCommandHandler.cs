@@ -14,7 +14,7 @@ public class DeleteCategoryCommandHandler : IBaseCommandHandler<DeleteCategoryCo
     public async Task<OperationResult> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
     {
         var result = await _categoryRepository.DeleteCategory(request.CategoryId);
-        if (result == true)
+        if (result is true)
         {
             await _categoryRepository.Save();
             return OperationResult.Success();

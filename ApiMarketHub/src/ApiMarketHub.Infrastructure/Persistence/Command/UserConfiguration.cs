@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.UserAggregate;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.CategoryAggregate;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class CategoryConfiguration : IEntityTypeConfiguration<Category> /* برای اطلاع دادن به متد (OnModelCreating) از این کلاس ارث‌بری میکنیم */
 {
     public void Configure(EntityTypeBuilder<Category> builder)

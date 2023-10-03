@@ -10,8 +10,9 @@ public class CommentRepository : BaseRepository<Comment>, ICommentRepository
     {
     }
 
-    public Task DeleteAndSave(Comment comment)
+    public async Task DeleteAndSave(Comment comment)
     {
-        throw new NotImplementedException();
+        _context.Remove(comment);
+        await _context.SaveChangesAsync();
     }
 }

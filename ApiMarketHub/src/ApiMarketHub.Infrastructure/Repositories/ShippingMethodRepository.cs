@@ -12,6 +12,6 @@ public class ShippingMethodRepository : BaseRepository<ShippingMethod>, IShippin
 
     public void Delete(ShippingMethod method)
     {
-        throw new NotImplementedException();
+        _context.ShippingMethods.Remove(method);
     }
 }

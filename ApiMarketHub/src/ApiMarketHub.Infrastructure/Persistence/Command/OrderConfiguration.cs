@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.OrderAggregate;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
@@ -17,7 +17,7 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
             option.ToTable("Items", "order");
             option.HasKey(b => b.Id);
             option.HasIndex(b => b.InventoryId);
-            option.HasIndex(b => b.OrderId);
+            option.HasIndex(b => b.OrderId); // HasIndex برای تعیین شاخص یا همون ایدی استفاده میشه 
         });
 
         builder.OwnsOne(b => b.Address, option =>

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.SideEntities;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class ShippingMethodConfiguration : IEntityTypeConfiguration<ShippingMethod>
 {
     public void Configure(EntityTypeBuilder<ShippingMethod> builder)

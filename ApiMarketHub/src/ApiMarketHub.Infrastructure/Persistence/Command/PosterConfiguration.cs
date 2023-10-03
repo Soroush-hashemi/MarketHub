@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.SideEntities;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class PosterConfiguration : IEntityTypeConfiguration<Poster>
 {
     public void Configure(EntityTypeBuilder<Poster> builder)

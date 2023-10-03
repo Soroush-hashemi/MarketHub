@@ -1,10 +1,11 @@
 ﻿using ApiMarketHub.Domain.RoleAggregate;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiMarketHub.Infrastructure.Persistence.Command.RoleAggregate;
+namespace ApiMarketHub.Infrastructure.Persistence.Command;
 internal class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
-    public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Role> builder)
+    public void Configure(EntityTypeBuilder<Role> builder)
     {
         builder.ToTable("Roles", "role");
         builder.Property(b => b.Title)

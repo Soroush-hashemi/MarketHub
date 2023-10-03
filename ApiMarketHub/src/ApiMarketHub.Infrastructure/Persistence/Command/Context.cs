@@ -30,6 +30,8 @@ public class Context : DbContext
     public DbSet<Slider> Sliders { get; set; }
     public DbSet<Poster> Poster { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<ShippingMethod> ShippingMethods { get; set; }
+
 
     // تنظیمات لازم برای اتصال به دیتابیس رو میده بهمون
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
