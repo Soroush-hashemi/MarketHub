@@ -7,6 +7,7 @@ using ApiMarketHub.Domain.SellerAggregate.Repository;
 using ApiMarketHub.Domain.SideEntities.Repository;
 using ApiMarketHub.Domain.UserAggregate.Repository;
 using ApiMarketHub.Infrastructure.Persistence.Command;
+using ApiMarketHub.Infrastructure.Persistence.Query;
 using ApiMarketHub.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,9 @@ public class InfrastructureBootstrapper
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<ICommentRepository, CommentRepository>();
         services.AddTransient<IShippingMethodRepository, ShippingMethodRepository>();
+
+
+        services.AddTransient(_ => new DapperContext(connectionString));
 
         services.AddDbContext<Context>(option =>
         {

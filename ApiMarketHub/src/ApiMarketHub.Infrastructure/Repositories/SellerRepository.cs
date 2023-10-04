@@ -1,26 +1,25 @@
 ﻿using ApiMarketHub.Domain.SellerAggregate;
 using ApiMarketHub.Domain.SellerAggregate.Repository;
 using ApiMarketHub.Infrastructure.Persistence.Command;
+using ApiMarketHub.Infrastructure.Persistence.Query;
 using ApiMarketHub.Infrastructure.Repositories.Base;
-using Microsoft.EntityFrameworkCore;
+using Dapper;
 
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class SellerRepository : BaseRepository<Seller>, ISellerRepository
 {
-    public SellerRepository(Context context) : base(context)
+    private readonly DapperContext _dapperContext;
+    public SellerRepository(Context context, DapperContext dapperContext) : base(context)
     {
+        _dapperContext = dapperContext;
     }
 
     public async Task<InventoryInfo?> GetInventoryById(long id)
     {
-        return await _context.Inventories.Where(I => I.Id == id)
-            .Select(i => new InventoryInfo()
-            {
-                Count = i.Count,
-                Id = i.Id,
-                Price = i.Price,
-                ProductId = i.ProductId,
-                SellerId = i.SellerId
-            }).FirstOrDefaultAsync();
+        using var connection = _dapperContext.CreateConnection();
+        var sql = $"SELECT * from {_dapperContext.Inventories} where Id=@InventoryId";
+
+        return await connection.QueryFirstOrDefaultAsync<InventoryInfo>
+            (sql, new { InventoryId = id });
     }
 }
