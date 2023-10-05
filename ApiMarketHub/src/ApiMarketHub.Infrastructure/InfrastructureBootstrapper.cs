@@ -28,7 +28,6 @@ public class InfrastructureBootstrapper
         services.AddTransient<ICommentRepository, CommentRepository>();
         services.AddTransient<IShippingMethodRepository, ShippingMethodRepository>();
 
-
         services.AddTransient(_ => new DapperContext(connectionString));
 
         services.AddDbContext<Context>(option =>
