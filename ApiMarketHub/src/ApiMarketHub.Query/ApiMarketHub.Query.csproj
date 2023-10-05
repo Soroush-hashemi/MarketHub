@@ -6,4 +6,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Categories\GetList\" />
+    <Folder Include="Categories\GetByParentId\" />
+    <Folder Include="Comments\" />
+    <Folder Include="Users\" />
+    <Folder Include="SideEntities\" />
+    <Folder Include="Sellers\" />
+    <Folder Include="Roles\" />
+    <Folder Include="Products\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared.Query\Shared.Query.csproj" />
+    <ProjectReference Include="..\..\shared\Shared.Domain\Shared.Domain.csproj" />
+    <ProjectReference Include="..\ApiMarketHub.Infrastructure\ApiMarketHub.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
