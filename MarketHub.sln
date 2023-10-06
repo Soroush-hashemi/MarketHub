@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain.UnitTest", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMarketHub.Application.UnitTest", "ApiMarketHub\test\ApiMarketHub.Application.UnitTest\ApiMarketHub.Application.UnitTest.csproj", "{976C48CA-72BF-4154-AB89-F521361B5C0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Query", "Shared.Query\Shared.Query.csproj", "{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Query", "ApiMarketHub\shared\Shared.Query\Shared.Query.csproj", "{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,10 +85,10 @@ Global
 		{976C48CA-72BF-4154-AB89-F521361B5C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{976C48CA-72BF-4154-AB89-F521361B5C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{976C48CA-72BF-4154-AB89-F521361B5C0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,7 +108,7 @@ Global
 		{9364D0B5-E614-4E8E-A70D-4D18F1FC3AD5} = {F8C7CD9C-31BA-4168-9486-82339BB6F301}
 		{27679C4F-DF0D-478A-9163-90E2666A2BBC} = {398D71C8-BF45-4128-AEAF-4B5DE3CAECF7}
 		{976C48CA-72BF-4154-AB89-F521361B5C0D} = {398D71C8-BF45-4128-AEAF-4B5DE3CAECF7}
-		{344DB8ED-A303-41DE-860E-CBCF5A0A5F0F} = {F8C7CD9C-31BA-4168-9486-82339BB6F301}
+		{30CD36D0-AEC1-4C5C-80B1-1C8DFD46A89C} = {F8C7CD9C-31BA-4168-9486-82339BB6F301}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F005F7C-74E6-436D-99DE-CF2FAF3A0AD9}
