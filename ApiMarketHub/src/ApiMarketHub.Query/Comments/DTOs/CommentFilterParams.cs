@@ -2,7 +2,7 @@
 using Shared.Query.Bases;
 
 namespace ApiMarketHub.Query.Comments.DTOs;
-public class CommentFilterParamsDto : BaseFilterParam
+public class CommentFilterParams : BaseFilterParam
 {
     public long? UserId { get; set; }
     public long? ProductId { get; set; }
@@ -11,7 +11,7 @@ public class CommentFilterParamsDto : BaseFilterParam
     public CommentStatus? CommentStatus { get; set; }
 }
 
-public class CommentFilterResult : BaseFilter<CommentDto, CommentFilterParamsDto>
+public class CommentFilterResult : BaseFilter<CommentDto, CommentFilterParams>
 {
 
 }
