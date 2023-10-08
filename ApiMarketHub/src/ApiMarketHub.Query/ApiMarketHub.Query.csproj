@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Orders\GetById\" />
+    <Folder Include="Orders\GetCurrent\" />
     <Folder Include="Users\" />
     <Folder Include="SideEntities\" />
     <Folder Include="Sellers\" />
     <Folder Include="Roles\" />
     <Folder Include="Products\" />
-    <Folder Include="Orders\" />
   </ItemGroup>
 
   <ItemGroup>
