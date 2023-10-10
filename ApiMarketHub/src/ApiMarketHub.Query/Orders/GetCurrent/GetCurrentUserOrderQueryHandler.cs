@@ -14,6 +14,7 @@ public class GetCurrentUserOrderQueryHandler : IQueryHandler<GetCurrentUserOrder
         _context = context;
         _dapperContext = dapperContext;
     }
+
     public async Task<OrderDto?> Handle(GetCurrentUserOrderQuery request, CancellationToken cancellationToken)
     {
         var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == request.orderId);

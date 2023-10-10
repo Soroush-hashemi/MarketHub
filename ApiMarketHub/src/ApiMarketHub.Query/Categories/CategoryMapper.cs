@@ -7,7 +7,7 @@ internal static class CategoryMapper
     public static CategoryDto Map(this Category? category)
     {
         if (category == null)
-            return null;
+            throw new ArgumentNullException();
 
         return new CategoryDto()
         {

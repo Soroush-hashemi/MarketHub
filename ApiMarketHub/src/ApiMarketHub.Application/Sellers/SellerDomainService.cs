@@ -3,7 +3,7 @@ using ApiMarketHub.Domain.SellerAggregate.Repository;
 using ApiMarketHub.Domain.SellerAggregate.Service;
 
 namespace ApiMarketHub.Application.Sellers;
-internal class SellerDomainService : ISellerDomainService
+public class SellerDomainService : ISellerDomainService
 {
     private readonly ISellerRepository _repository;
     public SellerDomainService(ISellerRepository repository)
