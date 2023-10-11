@@ -6,7 +6,7 @@ using ApiMarketHub.Infrastructure.Repositories.Base;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class ShippingMethodRepository : BaseRepository<ShippingMethod>, IShippingMethodRepository
 {
-    public ShippingMethodRepository(Context context) : base(context)
+    public ShippingMethodRepository(MarketHubContext context) : base(context)
     {
     }
 

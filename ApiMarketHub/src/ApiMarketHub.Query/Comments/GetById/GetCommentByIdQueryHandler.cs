@@ -6,8 +6,8 @@ using Shared.Query;
 namespace ApiMarketHub.Query.Comments.GetById;
 public class GetCommentByIdQueryHandler : IQueryHandler<GetCommentByIdQuery, CommentDto?>
 {
-    private readonly Context _context;
-    public GetCommentByIdQueryHandler(Context context)
+    private readonly MarketHubContext _context;
+    public GetCommentByIdQueryHandler(MarketHubContext context)
     {
         _context = context;
     }

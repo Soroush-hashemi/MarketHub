@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ApiMarketHub.Application\ApiMarketHub.Application.csproj" />
+    <ProjectReference Include="..\ApiMarketHub.Query\ApiMarketHub.Query.csproj" />
+  </ItemGroup>
+
 </Project>

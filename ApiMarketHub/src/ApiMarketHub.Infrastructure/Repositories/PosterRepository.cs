@@ -6,7 +6,7 @@ using ApiMarketHub.Infrastructure.Repositories.Base;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class PosterRepository : BaseRepository<Poster>, IPosterRepository
 {
-    public PosterRepository(Context context) : base(context)
+    public PosterRepository(MarketHubContext context) : base(context)
     {
         
     }

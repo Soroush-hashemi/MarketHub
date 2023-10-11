@@ -49,7 +49,6 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             option.Property(b => b.Family)
                 .IsRequired().HasMaxLength(50);
 
-
             option.Property(b => b.NationalCode)
                 .IsRequired().HasMaxLength(10);
 

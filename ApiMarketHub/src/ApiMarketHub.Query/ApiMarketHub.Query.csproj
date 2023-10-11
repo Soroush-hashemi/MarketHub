@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\Shared.Domain\Shared.Domain.csproj" />
     <ProjectReference Include="..\..\shared\Shared.Query\Shared.Query.csproj" />
     <ProjectReference Include="..\ApiMarketHub.Infrastructure\ApiMarketHub.Infrastructure.csproj" />
   </ItemGroup>

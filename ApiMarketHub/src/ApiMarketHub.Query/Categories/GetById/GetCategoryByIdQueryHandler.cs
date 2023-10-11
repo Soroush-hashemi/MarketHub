@@ -6,8 +6,8 @@ using Shared.Query;
 namespace ApiMarketHub.Query.Categories.GetById;
 public class GetCategoryByIdQueryHandler : IQueryHandler<GetCategoryByIdQuery, CategoryDto>
 {
-    private readonly Context _context;
-    public GetCategoryByIdQueryHandler(Context context)
+    private readonly MarketHubContext _context;
+    public GetCategoryByIdQueryHandler(MarketHubContext context)
     {
         _context = context;
     }

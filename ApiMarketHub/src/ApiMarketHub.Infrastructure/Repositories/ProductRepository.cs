@@ -6,7 +6,7 @@ using ApiMarketHub.Infrastructure.Repositories.Base;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class ProductRepository : BaseRepository<Product>, IProductRepository
 {
-    public ProductRepository(Context context) : base(context)
+    public ProductRepository(MarketHubContext context) : base(context)
     {
 
     }

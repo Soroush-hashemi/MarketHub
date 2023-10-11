@@ -1,5 +1,5 @@
 ﻿using ApiMarketHub.Infrastructure.Persistence.Command;
-using Common.Domain.Repository;
+using Shared.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Bases;
 using System.Linq.Expressions;
@@ -7,8 +7,8 @@ using System.Linq.Expressions;
 namespace ApiMarketHub.Infrastructure.Repositories.Base;
 public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
 {
-    protected readonly Context _context;
-    public BaseRepository(Context context)
+    protected readonly MarketHubContext _context;
+    public BaseRepository(MarketHubContext context)
     {
         _context = context;
     }

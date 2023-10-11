@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
 {
-    public CategoryRepository(Context context) : base(context)
+    public CategoryRepository(MarketHubContext context) : base(context)
     {
     }
 

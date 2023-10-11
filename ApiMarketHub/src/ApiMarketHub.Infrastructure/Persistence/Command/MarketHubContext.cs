@@ -6,16 +6,24 @@ using ApiMarketHub.Domain.RoleAggregate;
 using ApiMarketHub.Domain.SellerAggregate;
 using ApiMarketHub.Domain.SideEntities;
 using ApiMarketHub.Domain.UserAggregate;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Shared.Domain.Bases;
 
 namespace ApiMarketHub.Infrastructure.Persistence.Command;
-public class Context : DbContext
+public class MarketHubContext : DbContext
 {
     /*
     اینجا در کلاس های مختلف زمان استفاده از کلاس کانتکس به جای اپشن باید یه پارامتری 
     بهش پاس بدیم پس از بیس اپشن ارث بری میکنیم تا بتونیم به اپشن یه پارامتری بدیم 
     */
-    public Context(DbContextOptions<Context> options) : base(options)
+
+    public MarketHubContext()
+    {
+
+    }
+
+    public MarketHubContext(DbContextOptions<MarketHubContext> options) : base(options)
     {
 
     }
@@ -32,6 +40,11 @@ public class Context : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<ShippingMethod> ShippingMethods { get; set; }
 
+    private List<AggregateRoot> GetModifiedEntities() =>
+        ChangeTracker.Entries<AggregateRoot>()
+            .Where(x => x.State != EntityState.Detached)
+            .Select(c => c.Entity)
+            .Where(c => c.DomainEvents.Any()).ToList();
 
     // تنظیمات لازم برای اتصال به دیتابیس رو میده بهمون
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,7 +59,7 @@ public class Context : DbContext
     */
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MarketHubContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

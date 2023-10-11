@@ -1,7 +1,7 @@
 ﻿using Shared.Domain.Bases;
 using System.Linq.Expressions;
 
-namespace Common.Domain.Repository;
+namespace Shared.Domain.Repository;
 public interface IBaseRepository<T> where T : BaseEntity
 {
     Task<T?> GetAsync(long id);

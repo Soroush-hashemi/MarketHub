@@ -9,7 +9,7 @@ namespace ApiMarketHub.Infrastructure.Repositories;
 public class SellerRepository : BaseRepository<Seller>, ISellerRepository
 {
     private readonly DapperContext _dapperContext;
-    public SellerRepository(Context context, DapperContext dapperContext) : base(context)
+    public SellerRepository(MarketHubContext context, DapperContext dapperContext) : base(context)
     {
         _dapperContext = dapperContext;
     }

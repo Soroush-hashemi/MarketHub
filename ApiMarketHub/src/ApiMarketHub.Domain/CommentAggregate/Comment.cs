@@ -11,6 +11,11 @@ public class Comment : AggregateRoot
     public CommentStatus Status { get; private set; }
     public DateTime UpdateDate { get; private set; }
 
+    private Comment()
+    {
+        
+    }
+
     public Comment(long userId, long productId, string text)
     {
         NullOrEmptyException.CheckString(text, nameof(text));

@@ -6,8 +6,8 @@ using Shared.Query;
 namespace ApiMarketHub.Query.Orders.GetByFilter;
 internal class GetOrdersByFilterQueryHandler : IQueryHandler<GetOrdersByFilterQuery, OrderFilterResult>
 {
-    private readonly Context _context;
-    public GetOrdersByFilterQueryHandler(Context context)
+    private readonly MarketHubContext _context;
+    public GetOrdersByFilterQueryHandler(MarketHubContext context)
     {
         _context = context;
     }

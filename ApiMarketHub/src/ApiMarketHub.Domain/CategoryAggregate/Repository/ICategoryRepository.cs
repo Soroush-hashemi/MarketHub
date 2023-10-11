@@ -1,4 +1,4 @@
-﻿using Common.Domain.Repository;
+﻿using Shared.Domain.Repository;
 
 namespace ApiMarketHub.Domain.CategoryAggregate.Repository;
 public interface ICategoryRepository : IBaseRepository<Category>

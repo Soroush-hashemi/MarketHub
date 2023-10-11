@@ -40,7 +40,7 @@ internal static class OrderMapper
         return result.ToList();
     }
 
-    public static OrderFilterDataDto MapFilterData(this Order order,Context context)
+    public static OrderFilterDataDto MapFilterData(this Order order,MarketHubContext context)
     {
         var userFullName = context.Users.Where(r => r.Id == order.UserId).Select(u => $"{u.Name} {u.Family}").First();
 

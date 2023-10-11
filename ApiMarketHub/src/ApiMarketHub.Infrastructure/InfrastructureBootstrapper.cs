@@ -1,4 +1,5 @@
-﻿using ApiMarketHub.Domain.CategoryAggregate.Repository;
+﻿using AngleSharp;
+using ApiMarketHub.Domain.CategoryAggregate.Repository;
 using ApiMarketHub.Domain.CommentAggregate.Repository;
 using ApiMarketHub.Domain.OrderAggregate.Repository;
 using ApiMarketHub.Domain.ProductAggregate.Repository;
@@ -13,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiMarketHub.Infrastructure;
-public class InfrastructureBootstrapper
+public static class InfrastructureBootstrapper
 {
     public static void Init(IServiceCollection services, string connectionString)
     {
@@ -30,7 +31,7 @@ public class InfrastructureBootstrapper
 
         services.AddTransient(_ => new DapperContext(connectionString));
 
-        services.AddDbContext<Context>(option =>
+        services.AddDbContext<MarketHubContext>(option =>
         {
             option.UseSqlServer(connectionString);
         });

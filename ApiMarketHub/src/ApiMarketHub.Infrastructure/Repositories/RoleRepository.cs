@@ -6,7 +6,7 @@ using ApiMarketHub.Infrastructure.Repositories.Base;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class RoleRepository : BaseRepository<Role> , IRoleRepository
 {
-    public RoleRepository(Context context) : base(context)
+    public RoleRepository(MarketHubContext context) : base(context)
     {
         
     }

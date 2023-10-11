@@ -12,8 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiMarketHub.Infrastructure\ApiMarketHub.Infrastructure.csproj" />
-    <ProjectReference Include="..\ApiMarketHub.Query\ApiMarketHub.Query.csproj" />
+    <ProjectReference Include="..\ApiMarketHub.PresentationFacade\ApiMarketHub.PresentationFacade.csproj" />
   </ItemGroup>
 
 </Project>

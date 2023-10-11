@@ -11,7 +11,6 @@ using ApiMarketHub.Application.Users;
 using ApiMarketHub.Application.Sellers;
 using MediatR;
 using ApiMarketHub.Query.Categories.GetById;
-using ApiMarketHub.Application.Roles.Create;
 using FluentValidation;
 
 namespace ApiMarketHub.Config;
@@ -30,6 +29,5 @@ public static class Bootstrapper
         services.AddTransient<ISellerDomainService, SellerDomainService>();
 
         services.AddValidatorsFromAssembly(typeof(Directories).Assembly);
-
     }
 }

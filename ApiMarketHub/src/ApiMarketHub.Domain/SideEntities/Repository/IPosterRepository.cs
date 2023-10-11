@@ -1,4 +1,4 @@
-﻿using Common.Domain.Repository;
+﻿using Shared.Domain.Repository;
 using System.Reflection;
 
 namespace ApiMarketHub.Domain.SideEntities.Repository;

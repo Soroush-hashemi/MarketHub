@@ -7,9 +7,9 @@ using Shared.Query;
 namespace ApiMarketHub.Query.Orders.GetById;
 public class GetOrderByIdQueryHandler : IQueryHandler<GetOrderByIdQuery, OrderDto?>
 {
-    private readonly Context _context;
+    private readonly MarketHubContext _context;
     private readonly DapperContext _dapperContext;
-    public GetOrderByIdQueryHandler(Context context, DapperContext dapperContext)
+    public GetOrderByIdQueryHandler(MarketHubContext context, DapperContext dapperContext)
     {
         _context = context;
         _dapperContext = dapperContext;

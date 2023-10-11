@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class OrderRepository : BaseRepository<Order>, IOrderRepository
 {
-    public OrderRepository(Context context) : base(context)
+    public OrderRepository(MarketHubContext context) : base(context)
     {
     }
 

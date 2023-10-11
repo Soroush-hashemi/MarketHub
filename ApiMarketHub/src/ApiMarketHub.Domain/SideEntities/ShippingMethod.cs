@@ -4,6 +4,9 @@ using Shared.Domain.Exceptions;
 namespace ApiMarketHub.Domain.SideEntities;
 public class ShippingMethod : BaseEntity
 {
+    public string Title { get; private set; }
+    public int Cost { get; private set; }
+
     public ShippingMethod(int cost, string title)
     {
         NullOrEmptyException.CheckString(title, nameof(title));
@@ -17,7 +20,4 @@ public class ShippingMethod : BaseEntity
         Cost = cost;
         Title = title;
     }
-
-    public string Title { get; private set; }
-    public int Cost { get; private set; }
 }

@@ -6,8 +6,8 @@ using Shared.Query;
 namespace ApiMarketHub.Query.Comments.GetByFilter;
 public class GetCommentByFilterQueryHandler : IQueryHandler<GetCommentByFilterQuery, CommentFilterResult>
 {
-    private readonly Context _context;
-    public GetCommentByFilterQueryHandler(Context context)
+    private readonly MarketHubContext _context;
+    public GetCommentByFilterQueryHandler(MarketHubContext context)
     {
         _context = context;
     }

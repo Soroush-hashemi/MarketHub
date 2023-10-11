@@ -6,7 +6,7 @@ using ApiMarketHub.Infrastructure.Repositories.Base;
 namespace ApiMarketHub.Infrastructure.Repositories;
 public class UserRepository : BaseRepository<User> , IUserRepository
 {
-    public UserRepository(Context context) : base(context)
+    public UserRepository(MarketHubContext context) : base(context)
     {
         
     }
