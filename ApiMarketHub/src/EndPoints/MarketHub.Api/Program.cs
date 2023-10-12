@@ -1,12 +1,10 @@
-using AngleSharp;
 using ApiMarketHub.Config;
-using ApiMarketHub.Infrastructure.Persistence.Command;
 using Microsoft.EntityFrameworkCore;
-using Shared.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -16,12 +14,7 @@ services.AddSwaggerGen();
 
 var app = builder.Build();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-if (connectionString != null)
-    services.ConfigBootstrapper(connectionString);
-
-ValidationBootstrapper.Init(services);
+Bootstrapper.ConfigBootstrapper(services, builder.Configuration.GetConnectionString("DefaultConnection"));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

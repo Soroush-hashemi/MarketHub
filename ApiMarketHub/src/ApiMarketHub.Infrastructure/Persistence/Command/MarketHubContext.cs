@@ -6,26 +6,21 @@ using ApiMarketHub.Domain.RoleAggregate;
 using ApiMarketHub.Domain.SellerAggregate;
 using ApiMarketHub.Domain.SideEntities;
 using ApiMarketHub.Domain.UserAggregate;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Bases;
 
 namespace ApiMarketHub.Infrastructure.Persistence.Command;
 public class MarketHubContext : DbContext
 {
-    /*
-    اینجا در کلاس های مختلف زمان استفاده از کلاس کانتکس به جای اپشن باید یه پارامتری 
-    بهش پاس بدیم پس از بیس اپشن ارث بری میکنیم تا بتونیم به اپشن یه پارامتری بدیم 
-    */
-
+    /* اینجا در کلاس های مختلف زمان استفاده از کلاس کانتکس به جای اپشن باید یه پارامتری 
+    بهش پاس بدیم پس از بیس اپشن ارث بری میکنیم تا بتونیم به اپشن یه پارامتری بدیم  */
     public MarketHubContext()
     {
-
+        
     }
-
     public MarketHubContext(DbContextOptions<MarketHubContext> options) : base(options)
     {
-
+       
     }
 
     public DbSet<Category> Categories { get; set; }
@@ -49,14 +44,13 @@ public class MarketHubContext : DbContext
     // تنظیمات لازم برای اتصال به دیتابیس رو میده بهمون
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {   // تنظیم می‌کند که تمامی داده‌هایی که از پایگاه داده خوانده می‌شوند و قابل تغییر نیستند
+        optionsBuilder.UseSqlServer("ConnectionStrings");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         base.OnConfiguring(optionsBuilder);
     }
 
-    /* 
-    این متد میره اسمبلی کانتکس رو میگیره و
-    تمام کلاس هایی که از کانتکس استفاده کردن رو دریافت میکنه (مثل کانفیگورپروداکت) و تغییراتی که انجام دادن رو میاره اینجا
-    */
+    /* این متد میره اسمبلی کانتکس رو میگیره و
+    تمام کلاس هایی که از کانتکس استفاده کردن رو دریافت میکنه (مثل کانفیگورپروداکت) و تغییراتی که انجام دادن رو میاره اینجا */
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(MarketHubContext).Assembly);
