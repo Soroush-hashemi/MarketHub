@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiMarketHub.Infrastructure.Migrations
 {
     [DbContext(typeof(MarketHubContext))]
-    [Migration("20231013124638_Init_DataBase")]
+    [Migration("20231013183019_Init_DataBase")]
     partial class Init_DataBase
     {
         /// <inheritdoc />

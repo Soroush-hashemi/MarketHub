@@ -11,13 +11,14 @@ using ApiMarketHub.Infrastructure.Persistence.Query;
 using ApiMarketHub.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using System.Reflection.Emit;
 
 namespace ApiMarketHub.Infrastructure;
 public static class InfrastructureBootstrapper
 {
     public static void Init(IServiceCollection services, string connectionString)
     {
-
         services.AddTransient<ICategoryRepository, CategoryRepository>();
         services.AddTransient<IOrderRepository, OrderRepository>();
         services.AddTransient<IProductRepository, ProductRepository>();
@@ -30,6 +31,7 @@ public static class InfrastructureBootstrapper
         services.AddTransient<IShippingMethodRepository, ShippingMethodRepository>();
 
         services.AddTransient(_ => new DapperContext(connectionString));
+
         services.AddDbContext<MarketHubContext>(option =>
         {
             option.UseSqlServer(connectionString);

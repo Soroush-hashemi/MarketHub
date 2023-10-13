@@ -14,13 +14,15 @@ public class MarketHubContext : DbContext
 {
     /* اینجا در کلاس های مختلف زمان استفاده از کلاس کانتکس به جای اپشن باید یه پارامتری 
     بهش پاس بدیم پس از بیس اپشن ارث بری میکنیم تا بتونیم به اپشن یه پارامتری بدیم  */
+
     public MarketHubContext()
     {
-        
+
     }
+
     public MarketHubContext(DbContextOptions<MarketHubContext> options) : base(options)
     {
-       
+
     }
 
     public DbSet<Category> Categories { get; set; }
@@ -44,7 +46,7 @@ public class MarketHubContext : DbContext
     // تنظیمات لازم برای اتصال به دیتابیس رو میده بهمون
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {   // تنظیم می‌کند که تمامی داده‌هایی که از پایگاه داده خوانده می‌شوند و قابل تغییر نیستند
-        optionsBuilder.UseSqlServer("ConnectionStrings");
+        optionsBuilder.UseSqlServer("Server=.;Database=MarketHub;User Id=sa;Password=!?So1384;TrustServerCertificate=True;MultipleActiveResultSets=true");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         base.OnConfiguring(optionsBuilder);
     }
