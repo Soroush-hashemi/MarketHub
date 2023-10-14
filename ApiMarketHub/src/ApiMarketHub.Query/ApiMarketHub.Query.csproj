@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Products\GetForStore\" />
     <Folder Include="Users\" />
     <Folder Include="SideEntities\" />
     <Folder Include="Sellers\" />
     <Folder Include="Roles\" />
-    <Folder Include="Products\" />
   </ItemGroup>
 
   <ItemGroup>
