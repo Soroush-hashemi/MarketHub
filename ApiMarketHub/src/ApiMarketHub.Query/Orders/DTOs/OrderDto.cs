@@ -1,7 +1,6 @@
 ﻿using ApiMarketHub.Domain.OrderAggregate.Enum;
 using ApiMarketHub.Domain.OrderAggregate.ValueObjects;
 using ApiMarketHub.Domain.OrderAggregate;
-using ApiMarketHub.Query.Orders.DTO;
 using Shared.Query.Bases;
 
 namespace ApiMarketHub.Query.Orders.DTOs;

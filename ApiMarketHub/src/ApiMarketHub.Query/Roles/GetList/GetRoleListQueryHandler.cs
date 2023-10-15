@@ -1,5 +1,5 @@
 ﻿using ApiMarketHub.Infrastructure.Persistence.Command;
-using ApiMarketHub.Query.Roles.DTOs;
+using ApiMarketHub.Query.Roles.DTO;
 using Microsoft.EntityFrameworkCore;
 using Shared.Query;
 

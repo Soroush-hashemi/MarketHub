@@ -1,5 +1,5 @@
 ﻿using ApiMarketHub.Infrastructure.Persistence.Command;
-using ApiMarketHub.Query.Roles.DTOs;
+using ApiMarketHub.Query.Roles.DTO;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Exceptions;
 using Shared.Query;
@@ -19,12 +19,7 @@ public class GetRoleByIdQueryHandler : IQueryHandler<GetRoleByIdQuery, RoleDto?>
         if (role == null)
             throw new NullOrEmptyException();
 
-        return new RoleDto()
-        {
-            Id = role.Id,
-            CreationDate = role.CreationDate,
-            Permissions = role.Permissions.Select(s => s.Permission).ToList(),
-            Title = role.Title
-        };
+        var roleDto = role.Map();
+        return roleDto;
     }
 }

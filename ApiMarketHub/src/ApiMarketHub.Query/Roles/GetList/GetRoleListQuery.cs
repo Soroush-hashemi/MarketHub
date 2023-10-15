@@ -1,4 +1,4 @@
-﻿using ApiMarketHub.Query.Roles.DTOs;
+﻿using ApiMarketHub.Query.Roles.DTO;
 using Shared.Query;
 
 namespace ApiMarketHub.Query.Roles.GetList;

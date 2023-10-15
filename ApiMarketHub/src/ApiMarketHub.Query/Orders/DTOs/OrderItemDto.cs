@@ -1,6 +1,6 @@
 ﻿using Shared.Query.Bases;
 
-namespace ApiMarketHub.Query.Orders.DTO;
+namespace ApiMarketHub.Query.Orders.DTOs;
 public class OrderItemDto : BaseDto
 {
     public string ProductTitle { get; set; }

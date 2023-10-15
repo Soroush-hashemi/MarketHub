@@ -8,9 +8,9 @@
 
   <ItemGroup>
     <Folder Include="Products\GetForStore\" />
+    <Folder Include="Sellers\Inventories\" />
     <Folder Include="Users\" />
     <Folder Include="SideEntities\" />
-    <Folder Include="Sellers\" />
   </ItemGroup>
 
   <ItemGroup>

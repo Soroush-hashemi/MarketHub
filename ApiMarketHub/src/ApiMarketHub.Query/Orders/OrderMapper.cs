@@ -1,7 +1,6 @@
 ﻿using ApiMarketHub.Domain.OrderAggregate;
 using ApiMarketHub.Infrastructure.Persistence.Command;
 using ApiMarketHub.Infrastructure.Persistence.Query;
-using ApiMarketHub.Query.Orders.DTO;
 using ApiMarketHub.Query.Orders.DTOs;
 using Dapper;
 
