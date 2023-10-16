@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Products\GetForStore\" />
     <Folder Include="Users\" />
-    <Folder Include="SideEntities\" />
   </ItemGroup>
 
   <ItemGroup>
