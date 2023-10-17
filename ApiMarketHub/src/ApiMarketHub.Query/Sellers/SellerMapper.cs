@@ -17,6 +17,6 @@ public static class SellerMapper
             NationalCode = seller.NationalCode,
             StoreName = seller.StoreName,
             UserId = seller.UserId
-        }; // StoreName to MarketHub
+        };
     }
 }

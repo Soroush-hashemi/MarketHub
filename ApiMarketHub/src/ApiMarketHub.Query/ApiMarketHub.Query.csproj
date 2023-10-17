@@ -8,7 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Products\GetForStore\" />
-    <Folder Include="Users\" />
+    <Folder Include="Users\GetByPhoneNumber\" />
+    <Folder Include="Users\GetById\" />
+    <Folder Include="Users\GetByFilter\" />
+    <Folder Include="Users\UserTokens\" />
   </ItemGroup>
 
   <ItemGroup>
