@@ -28,14 +28,14 @@ internal class CategoryFacade : ICategoryFacade
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> Edit(EditCategoryCommand command)
-    {
-        return await _mediator.Send(command);
-    }
-
     public async Task<OperationResult> Delete(long CategoryId)
     {
         return await _mediator.Send(new DeleteCategoryCommand(CategoryId));
+    }
+
+    public async Task<OperationResult> Edit(EditCategoryCommand command)
+    {
+        return await _mediator.Send(command);
     }
 
     public async Task<CategoryDto> GetCategoryById(long CategoryId)
