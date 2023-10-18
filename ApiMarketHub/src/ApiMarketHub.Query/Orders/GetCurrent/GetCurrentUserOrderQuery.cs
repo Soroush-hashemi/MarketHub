@@ -2,4 +2,4 @@
 using Shared.Query;
 
 namespace ApiMarketHub.Query.Orders.GetCurrent;
-public record GetCurrentUserOrderQuery(long orderId) : IQuery<OrderDto?>;
+public record GetCurrentUserOrderQuery(long userId) : IQuery<OrderDto?>;
