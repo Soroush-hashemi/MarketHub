@@ -21,7 +21,7 @@ public class GetInventoriesQueryHandler : IQueryHandler<GetInventoriesQuery, Lis
             FROM {_context.Inventories} i inner join {_context.Sellers} s on i.SellerId=s.Id  
             inner join {_context.Products} p on i.ProductId=p.Id WHERE i.SellerId=@sellerId";
 
-        var inventories = await connection.QueryAsync<InventoryDto>(sql, new { sellerId = request.SellerId });
+        var inventories = await connection.QueryAsync<InventoryDto>(sql, new { sellerId = request.Id });
         return inventories.ToList();
     }
 

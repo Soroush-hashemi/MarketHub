@@ -1,5 +1,6 @@
 ﻿using ApiMarketHub.Infrastructure.Persistence.Command;
 using ApiMarketHub.Query.Users.DTOs;
+using Microsoft.EntityFrameworkCore;
 using Shared.Query;
 
 namespace ApiMarketHub.Query.Users.GetByFilter;
@@ -21,7 +22,7 @@ public class GetUserByFilterQueryHandler : IQueryHandler<GetUserByFilterQuery, U
             result = result.Where(r => r.Email.Contains(@params.Email));
 
         if (!string.IsNullOrWhiteSpace(@params.PhoneNumber))
-            result = result.Where(r => r.PhoneNumber.Contains(@params.PhoneNumber));
+            result = result.Where(r => r.PhoneNumber.Value.Contains(@params.PhoneNumber));
 
         if (@params.Id != null)
             result = result.Where(r => r.Id == @params.Id);

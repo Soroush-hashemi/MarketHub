@@ -17,7 +17,7 @@ public class GetCurrentUserOrderQueryHandler : IQueryHandler<GetCurrentUserOrder
 
     public async Task<OrderDto?> Handle(GetCurrentUserOrderQuery request, CancellationToken cancellationToken)
     {
-        var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == request.orderId);
+        var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == request.userId);
         if (order == null)
             throw new NullReferenceException();
 
