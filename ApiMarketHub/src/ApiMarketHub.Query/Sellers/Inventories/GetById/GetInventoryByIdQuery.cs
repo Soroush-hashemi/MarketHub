@@ -2,4 +2,4 @@
 using Shared.Query;
 
 namespace ApiMarketHub.Query.Sellers.Inventories.GetById;
-public record GetSellerInventoryByIdQuery(long Id) : IQuery<InventoryDto?>;
+public record GetInventoryByIdQuery(long Id) : IQuery<InventoryDto?>;

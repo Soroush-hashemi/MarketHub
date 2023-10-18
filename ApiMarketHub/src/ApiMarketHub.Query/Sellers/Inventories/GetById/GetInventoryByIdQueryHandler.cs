@@ -4,15 +4,15 @@ using Dapper;
 using Shared.Query;
 
 namespace ApiMarketHub.Query.Sellers.Inventories.GetById;
-internal class GetSellerInventoryByIdQueryHandler : IQueryHandler<GetSellerInventoryByIdQuery, InventoryDto?>
+internal class GetInventoryByIdQueryHandler : IQueryHandler<GetInventoryByIdQuery, InventoryDto?>
 {
     private readonly DapperContext _context;
-    public GetSellerInventoryByIdQueryHandler(DapperContext context)
+    public GetInventoryByIdQueryHandler(DapperContext context)
     {
         _context = context;
     }
 
-    public async Task<InventoryDto?> Handle(GetSellerInventoryByIdQuery request, CancellationToken cancellationToken)
+    public async Task<InventoryDto?> Handle(GetInventoryByIdQuery request, CancellationToken cancellationToken)
     {
         var connection = _context.CreateConnection();
 
