@@ -11,4 +11,14 @@
     <ProjectReference Include="..\ApiMarketHub.Query\ApiMarketHub.Query.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Comments\" />
+    <Folder Include="Users\" />
+    <Folder Include="SideEntities\" />
+    <Folder Include="Sellers\" />
+    <Folder Include="Roles\" />
+    <Folder Include="Products\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>
