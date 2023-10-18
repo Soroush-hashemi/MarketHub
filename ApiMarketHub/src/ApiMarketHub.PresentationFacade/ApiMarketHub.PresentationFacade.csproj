@@ -15,7 +15,6 @@
     <Folder Include="Users\" />
     <Folder Include="SideEntities\" />
     <Folder Include="Sellers\" />
-    <Folder Include="Products\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
 ﻿using ApiMarketHub.Application.Categories.AddChild;
 using ApiMarketHub.Application.Categories.Create;
-using ApiMarketHub.Application.Categories.Delete;
 using ApiMarketHub.Application.Categories.Edit;
 using ApiMarketHub.Query.Categories.DTOs;
 using Shared.Application;
