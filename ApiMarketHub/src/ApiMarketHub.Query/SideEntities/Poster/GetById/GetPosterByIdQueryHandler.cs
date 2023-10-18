@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Shared.Query;
 
 namespace ApiMarketHub.Query.SideEntities.Poster.GetById;
-public class GetPosterByIdQueryHandler : IQueryHandler<GetPosterByIdQuery, PosterDto>
+public class GetPosterByIdQueryHandler : IQueryHandler<GetPosterByIdQuery, PosterDto?>
 {
     private readonly MarketHubContext _context;
     public GetPosterByIdQueryHandler(MarketHubContext context)
@@ -12,7 +12,7 @@ public class GetPosterByIdQueryHandler : IQueryHandler<GetPosterByIdQuery, Poste
         _context = context;   
     }
 
-    public async Task<PosterDto> Handle(GetPosterByIdQuery request, CancellationToken cancellationToken)
+    public async Task<PosterDto?> Handle(GetPosterByIdQuery request, CancellationToken cancellationToken)
     {
         var poster = await _context.Poster.FirstOrDefaultAsync(f => f.Id == request.Id, cancellationToken);
         if (poster == null)

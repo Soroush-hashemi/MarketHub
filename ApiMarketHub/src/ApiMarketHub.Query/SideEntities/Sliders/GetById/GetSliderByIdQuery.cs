@@ -2,4 +2,4 @@
 using Shared.Query;
 
 namespace ApiMarketHub.Query.SideEntities.Sliders.GetById;
-public record GetSliderByIdQuery(long Id) : IQuery<SliderDto>;
+public record GetSliderByIdQuery(long Id) : IQuery<SliderDto?>;
