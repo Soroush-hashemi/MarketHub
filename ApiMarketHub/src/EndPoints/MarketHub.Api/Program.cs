@@ -1,5 +1,8 @@
 using ApiMarketHub.Config;
 using Microsoft.EntityFrameworkCore;
+using Shared.Application;
+using Shared.Application.FileUtil.Interfaces;
+using Shared.Application.FileUtil.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -13,6 +16,10 @@ services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 services.AddSwaggerGen();
 
 Bootstrapper.ConfigBootstrapper(services, builder.Configuration.GetConnectionString("DefaultConnection"));
+
+ValidationBootstrapper.Init(services);
+services.AddTransient<IFileService, FileService>();
+
 
 var app = builder.Build();
 

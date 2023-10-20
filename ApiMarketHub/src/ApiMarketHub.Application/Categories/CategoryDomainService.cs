@@ -12,6 +12,9 @@ public class CategoryDomainService : ICategoryDomainService
 
     public bool IsSlugExist(string slug)
     {
-        return _repository.Exists(s => s.Slug == slug);
+        var Exists = _repository.Exists(s => s.Slug == slug); //  اگر در سیستم وجود نداشت 0 رو برگشت میده
+        if (Exists == false)
+            return true;
+        return false;
     }
 }

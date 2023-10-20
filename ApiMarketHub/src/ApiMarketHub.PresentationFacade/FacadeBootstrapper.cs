@@ -15,7 +15,7 @@ using ApiMarketHub.PresentationFacade.SideEntities.Poster;
 namespace ApiMarketHub.PresentationFacade;
 public static class FacadeBootstrapper
 {
-    public static void InitFacadeDependency(IServiceCollection services)
+    public static void InitFacadeDependency(this IServiceCollection services)
     {
         services.AddTransient<ICategoryFacade, CategoryFacade>();
         services.AddTransient<ICommentFacade, CommentFacade>();
