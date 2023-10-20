@@ -31,7 +31,7 @@ public class CategoryController : ControllerBase
         return Ok(result);
     }
 
-    [HttpDelete("CategoryId")]
+    [HttpDelete("{CategoryId}")]
     public async Task<ActionResult> Delete(long CategoryId)
     {
         var result = await _categoryFacade.Delete(CategoryId);
@@ -45,14 +45,14 @@ public class CategoryController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("CategoryId")]
+    [HttpGet("{CategoryId}")]
     public async Task<ActionResult<CategoryDto>> GetCategoryById(long CategoryId)
     {
         var result = await _categoryFacade.GetCategoryById(CategoryId);
         return Ok(result);
     }
 
-    [HttpGet("CategoryId")]
+    [HttpGet("{parentId}")]
     public async Task<ActionResult<List<SubCategoryDto>>> GetCategoryByParentId(long ParentId)
     {
         var result = await _categoryFacade.GetCategoryByParentId(ParentId);
