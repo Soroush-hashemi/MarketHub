@@ -7,8 +7,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Categories;
 public interface ICategoryFacade
 {
-    Task<OperationResult<long>> AddChild(AddChildCategoryCommand command);
     Task<OperationResult<long>> Create(CreateCategoryCommand command);
+    Task<OperationResult<long>> AddChild(AddChildCategoryCommand command);
     Task<OperationResult> Delete(long CategoryId);
     Task<OperationResult> Edit(EditCategoryCommand command);
 

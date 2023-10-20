@@ -12,8 +12,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Categories;
 internal class CategoryFacade : ICategoryFacade
 {
-    private readonly Mediator _mediator;
-    public CategoryFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public CategoryFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

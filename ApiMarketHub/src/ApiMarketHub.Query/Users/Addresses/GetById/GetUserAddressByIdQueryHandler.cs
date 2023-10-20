@@ -14,9 +14,9 @@ public class GetUserAddressByIdQueryHandler : IQueryHandler<GetUserAddressByIdQu
 
     public async Task<AddressDto?> Handle(GetUserAddressByIdQuery request, CancellationToken cancellationToken)
     {
-        var sql = $"Select top 1 * from {_dapperContext.UserAddresses} where id=@id";
+        var sql = $"SELECT top 1 * from {_dapperContext.UserAddresses} where Id=@Id";
         var connection = _dapperContext.CreateConnection();
 
-        return await connection.QueryFirstAsync<AddressDto>(sql, new { id = request.Id });
+        return await connection.QueryFirstAsync<AddressDto>(sql, new { Id = request.Id });
     }
 }

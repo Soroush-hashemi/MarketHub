@@ -16,12 +16,12 @@ internal class GetInventoryByIdQueryHandler : IQueryHandler<GetInventoryByIdQuer
     {
         var connection = _context.CreateConnection();
 
-        var sql = @$"SELECT Top(1) i.Id, SellerId , ProductId ,Count , Price,i.CreationDate , DiscountPercentage , s.ShopName,
+        var sql = @$"SELECT Top(1) i.Id, SellerId , ProductId ,Count ,Price ,i.CreationDate , DiscountPercentage , s.ShopName,
                         p.Title as ProductTitle,p.ImageName as ProductImage
             FROM {_context.Inventories} i inner join {_context.Sellers} s on i.SellerId=s.Id  
             inner join {_context.Products} p on i.ProductId=p.Id WHERE i.Id=@id";
 
-        var inventory = await connection.QueryFirstOrDefaultAsync<InventoryDto>(sql, new { id = request.Id });
+        var inventory = await connection.QueryFirstOrDefaultAsync<InventoryDto>(sql, new { Id = request.Id });
         if (inventory == null)
             throw new ArgumentNullException();
 

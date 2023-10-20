@@ -12,8 +12,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 namespace ApiMarketHub.PresentationFacade.Sellers.Inventories;
 internal class SellerInventoryFacade : ISellerInventoryFacade
 {
-    private readonly Mediator _mediator;
-    public SellerInventoryFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public SellerInventoryFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

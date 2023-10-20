@@ -10,8 +10,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.SideEntities.ShippingMethods;
 internal class ShippingMethodFacade : IShippingMethodFacade
 {
-    private readonly Mediator _mediator;
-    public ShippingMethodFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public ShippingMethodFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

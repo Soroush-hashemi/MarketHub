@@ -14,7 +14,7 @@ public class GetUserAddressesListQueryHandler : IQueryHandler<GetUserAddressesLi
 
     public async Task<List<AddressDto>> Handle(GetUserAddressesListQuery request, CancellationToken cancellationToken)
     {
-        var sql = $"Select * from {_dappercontext.UserAddresses} where UserId=@userId";
+        var sql = $"SELECT * from {_dappercontext.UserAddresses} where UserId=@userId";
         var connection = _dappercontext.CreateConnection();
 
         var result = await connection.QueryAsync<AddressDto>(sql, new { userId = request.userId });

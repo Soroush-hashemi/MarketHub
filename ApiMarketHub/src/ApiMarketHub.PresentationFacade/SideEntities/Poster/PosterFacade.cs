@@ -10,8 +10,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.SideEntities.Poster;
 internal class PosterFacade : IPosterFacade
 {
-    private readonly Mediator _mediator;
-    public PosterFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public PosterFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

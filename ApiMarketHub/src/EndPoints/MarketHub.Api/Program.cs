@@ -1,6 +1,5 @@
 using ApiMarketHub.Config;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -13,9 +12,9 @@ services.AddEndpointsApiExplorer();
 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 services.AddSwaggerGen();
 
-var app = builder.Build();
-
 Bootstrapper.ConfigBootstrapper(services, builder.Configuration.GetConnectionString("DefaultConnection"));
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

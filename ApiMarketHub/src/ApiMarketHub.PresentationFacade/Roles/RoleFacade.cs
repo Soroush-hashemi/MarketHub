@@ -9,8 +9,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Roles;
 internal class RoleFacade : IRoleFacade
 {
-    private readonly Mediator _mediator;
-    public RoleFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public RoleFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

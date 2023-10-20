@@ -15,8 +15,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Orders;
 internal class OrderFacade : IOrderFacade
 {
-    private readonly Mediator _mediator;
-    public OrderFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public OrderFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

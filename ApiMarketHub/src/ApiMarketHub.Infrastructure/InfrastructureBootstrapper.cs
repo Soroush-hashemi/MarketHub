@@ -11,8 +11,6 @@ using ApiMarketHub.Infrastructure.Persistence.Query;
 using ApiMarketHub.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using System.Reflection.Emit;
 
 namespace ApiMarketHub.Infrastructure;
 public static class InfrastructureBootstrapper

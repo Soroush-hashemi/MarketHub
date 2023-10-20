@@ -12,8 +12,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 namespace ApiMarketHub.PresentationFacade.Comments;
 internal class CommentFacade : ICommentFacade
 {
-    private readonly Mediator _mediator;
-    public CommentFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public CommentFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

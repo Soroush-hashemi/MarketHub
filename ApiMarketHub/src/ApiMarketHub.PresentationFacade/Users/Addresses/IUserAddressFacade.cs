@@ -13,6 +13,6 @@ public interface IUserAddressFacade
     Task<OperationResult> DeleteAddress(DeleteAddressUserCommand command);
     Task<OperationResult> SetActiveAddress(SetActiveAddressUserCommand command);
 
-    Task<AddressDto?> GetById(long userAddressId);
-    Task<List<AddressDto>> GetList(long userId);
+    Task<AddressDto?> GetAddressById(long userAddressId);
+    Task<List<AddressDto>> GetAddressList(long userId);
 }

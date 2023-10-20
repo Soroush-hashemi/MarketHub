@@ -14,6 +14,8 @@ using ApiMarketHub.Query.Categories.GetById;
 using FluentValidation;
 using ApiMarketHub.Application.Roles.Create;
 using Shared.Application;
+using ApiMarketHub.PresentationFacade;
+using System.Reflection;
 
 namespace ApiMarketHub.Config;
 public static class Bootstrapper
@@ -22,8 +24,8 @@ public static class Bootstrapper
     {
         InfrastructureBootstrapper.Init(services, connectionString);
 
-        services.AddMediatR(typeof(Directories).Assembly);
-        services.AddMediatR(typeof(GetCategoryByIdQuery).Assembly);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Directories).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetCategoryByIdQuery).Assembly));
 
         services.AddTransient<IProductDomainService, ProductDomainService>();
         services.AddTransient<IUserDomainService, UserDomainService>();
@@ -31,7 +33,9 @@ public static class Bootstrapper
         services.AddTransient<ISellerDomainService, SellerDomainService>();
 
         ValidationBootstrapper.Init(services);
-
+        
         services.AddValidatorsFromAssembly(typeof(CreateRoleCommandValidator).Assembly);
+
+        FacadeBootstrapper.InitFacadeDependency(services);
     }
 }

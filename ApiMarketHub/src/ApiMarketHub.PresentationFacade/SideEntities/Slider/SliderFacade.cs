@@ -10,8 +10,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.SideEntities.Slider;
 internal class SliderFacade : ISliderFacade
 {
-    private readonly Mediator _mediator;
-    public SliderFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public SliderFacade(IMediator mediator)
     {
         _mediator = mediator;
     }

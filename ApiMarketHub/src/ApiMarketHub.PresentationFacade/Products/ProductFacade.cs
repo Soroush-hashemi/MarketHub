@@ -12,8 +12,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Products;
 internal class ProductFacade : IProductFacade
 {
-    private readonly Mediator _mediator;
-    public ProductFacade(Mediator mediator)
+    private readonly IMediator _mediator;
+    public ProductFacade(IMediator mediator)
     {
         _mediator = mediator;
     }
