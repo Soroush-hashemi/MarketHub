@@ -5,12 +5,13 @@ using ApiMarketHub.Application.Comments.Edit;
 using ApiMarketHub.PresentationFacade.Comments;
 using ApiMarketHub.Query.Comments.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CommentController : ControllerBase
+public class CommentController : ApiController
 {
     private readonly ICommentFacade _commentFacade;
     public CommentController(ICommentFacade commentFacade)
@@ -19,44 +20,44 @@ public class CommentController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(CreateCommentCommand command)
+    public async Task<ApiResult> Create(CreateCommentCommand command)
     {
         var result = await _commentFacade.Create(command);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpPut]
-    public async Task<ActionResult> Edit(EditCommentCommand command)
+    public async Task<ApiResult> Edit(EditCommentCommand command)
     {
         var result = await _commentFacade.Edit(command);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpDelete]
-    public async Task<ActionResult> Delete(DeleteCommentCommand command)
+    public async Task<ApiResult> Delete(DeleteCommentCommand command)
     {
         var result = await _commentFacade.Delete(command);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpPut("ChangeStatus")]
-    public async Task<ActionResult> ChangeStatus(ChangeStatusCommentCommand command)
+    public async Task<ApiResult> ChangeStatus(ChangeStatusCommentCommand command)
     {
         var result = await _commentFacade.ChangeStatus(command);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpGet("{commentId}")]
-    public async Task<ActionResult<CommentDto?>> GetCommentById(long commentId)
+    public async Task<ApiResult<CommentDto?>> GetCommentById(long commentId)
     {
         var result = await _commentFacade.GetCommentById(commentId);
-        return Ok(result);
+        return QueryResult(result);
     }
 
     [HttpGet]
-    public async Task<ActionResult<CommentFilterResult>> GetCommentByFilter([FromQuery] CommentFilterParams filterParams)
+    public async Task<ApiResult<CommentFilterResult>> GetCommentByFilter([FromQuery] CommentFilterParams filterParams)
     {
         var result = await _commentFacade.GetCommentByFilter(filterParams);
-        return Ok(result);
+        return QueryResult(result);
     }
 }

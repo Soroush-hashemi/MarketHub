@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\Shared.ApiResponse\Shared.ApiResponse.csproj" />
     <ProjectReference Include="..\..\ApiMarketHub.Config\ApiMarketHub.Config.csproj" />
   </ItemGroup>
 

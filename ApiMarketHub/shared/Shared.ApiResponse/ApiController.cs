@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shared.Application;
 using System.Net;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Shared.ApiResponse;
 
@@ -22,7 +21,7 @@ public class ApiController : ControllerBase
         };
     }
 
-    protected ApiResult<TData?> CommandResult<TData>(OperationResult<TData> operationResult, HttpStatusCode httpStatus, string Url = null)
+    protected ApiResult<TData?> CommandResult<TData>(OperationResult<TData> operationResult, HttpStatusCode httpStatus, string Url)
     {
         bool isSuccess = operationResult.Status == OperationResultStatus.Success;
         if (isSuccess is true)

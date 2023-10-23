@@ -4,12 +4,12 @@ using ApiMarketHub.Application.Categories.Edit;
 using ApiMarketHub.PresentationFacade.Categories;
 using ApiMarketHub.Query.Categories.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Shared.ApiResponse;
+using System.Net;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class CategoryController : ControllerBase
+public class CategoryController : ApiController
 {
     private readonly ICategoryFacade _categoryFacade;
     public CategoryController(ICategoryFacade categoryFacade)
@@ -18,51 +18,53 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<long>> Create(CreateCategoryCommand command)
+    public async Task<ApiResult<long>> Create(CreateCategoryCommand command)
     {
         var result = await _categoryFacade.Create(command);
-        return Ok(result);
+        var url = Url.Action(nameof(GetCategoryById), "Category", new { id = result.Data }, Request.Scheme);
+        return CommandResult(result, HttpStatusCode.Created, url);
     }
 
     [HttpPost("AddChild")]
-    public async Task<ActionResult<long>> AddChild(AddChildCategoryCommand command)
+    public async Task<ApiResult<long>> AddChild(AddChildCategoryCommand command)
     {
         var result = await _categoryFacade.AddChild(command);
-        return Ok(result);
+        var url = Url.Action(nameof(GetCategoryById), "Category", new { id = result.Data }, Request.Scheme);
+        return CommandResult(result, HttpStatusCode.Created, url);
     }
 
     [HttpDelete("{CategoryId}")]
-    public async Task<ActionResult> Delete(long CategoryId)
+    public async Task<ApiResult> Delete(long CategoryId)
     {
         var result = await _categoryFacade.Delete(CategoryId);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpPut]
-    public async Task<ActionResult> Edit(EditCategoryCommand command)
+    public async Task<ApiResult> Edit(EditCategoryCommand command)
     {
         var result = await _categoryFacade.Edit(command);
-        return Ok(result);
+        return CommandResult(result);
     }
 
     [HttpGet("{CategoryId}")]
-    public async Task<ActionResult<CategoryDto>> GetCategoryById(long CategoryId)
+    public async Task<ApiResult<CategoryDto>> GetCategoryById(long CategoryId)
     {
         var result = await _categoryFacade.GetCategoryById(CategoryId);
-        return Ok(result);
+        return QueryResult(result);
     }
 
     [HttpGet("{parentId}")]
-    public async Task<ActionResult<List<SubCategoryDto>>> GetCategoryByParentId(long ParentId)
+    public async Task<ApiResult<List<SubCategoryDto>>> GetCategoryByParentId(long ParentId)
     {
         var result = await _categoryFacade.GetCategoryByParentId(ParentId);
-        return Ok(result);
+        return QueryResult(result);
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<CategoryDto>>> GetCategoryList()
+    public async Task<ApiResult<List<CategoryDto>>> GetCategoryList()
     {
         var result = await _categoryFacade.GetCategoryList();
-        return Ok(result);
+        return QueryResult(result);
     }
 }
