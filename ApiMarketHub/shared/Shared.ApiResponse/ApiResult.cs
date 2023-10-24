@@ -1,4 +1,6 @@
-﻿namespace Shared.ApiResponse;
+﻿using Shared.ApiResponse.Links;
+
+namespace Shared.ApiResponse;
 public class ApiResult
 {
     public bool IsSuccess { get; set; }
@@ -10,6 +12,7 @@ public class ApiResult<TData>
     public bool IsSuccess { get; set; }
     public TData Data { get; set; }
     public MetaData MetaData { get; set; }
+    public List<LinkDto> Links { get; set; } = new List<LinkDto>();
 }
 
 public class MetaData

@@ -21,16 +21,16 @@ public class CategoryController : ApiController
     public async Task<ApiResult<long>> Create(CreateCategoryCommand command)
     {
         var result = await _categoryFacade.Create(command);
-        var url = Url.Action(nameof(GetCategoryById), "Category", new { id = result.Data }, Request.Scheme);
-        return CommandResult(result, HttpStatusCode.Created, url);
+        var UrlPath = "Category";
+        return CommandResult(result, HttpStatusCode.Created, UrlPath);
     }
 
     [HttpPost("AddChild")]
     public async Task<ApiResult<long>> AddChild(AddChildCategoryCommand command)
     {
         var result = await _categoryFacade.AddChild(command);
-        var url = Url.Action(nameof(GetCategoryById), "Category", new { id = result.Data }, Request.Scheme);
-        return CommandResult(result, HttpStatusCode.Created, url);
+        var UrlPath = "Category";
+        return CommandResult(result, HttpStatusCode.Created, UrlPath);
     }
 
     [HttpDelete("{CategoryId}")]
@@ -54,7 +54,7 @@ public class CategoryController : ApiController
         return QueryResult(result);
     }
 
-    [HttpGet("{parentId}")]
+    [HttpGet("getChild/{parentId}")]
     public async Task<ApiResult<List<SubCategoryDto>>> GetCategoryByParentId(long ParentId)
     {
         var result = await _categoryFacade.GetCategoryByParentId(ParentId);

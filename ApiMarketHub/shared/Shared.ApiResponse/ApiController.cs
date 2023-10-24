@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shared.ApiResponse.Links;
 using Shared.Application;
 using System.Net;
 
@@ -21,21 +22,18 @@ public class ApiController : ControllerBase
         };
     }
 
-    protected ApiResult<TData?> CommandResult<TData>(OperationResult<TData> operationResult, HttpStatusCode httpStatus, string Url)
+    protected ApiResult<TData?> CommandResult<TData>(OperationResult<TData> operationResult, HttpStatusCode httpStatus, string UrlPath)
     {
         bool isSuccess = operationResult.Status == OperationResultStatus.Success;
         if (isSuccess is true)
         {
             HttpContext.Response.StatusCode = (int)httpStatus;
-            if (!string.IsNullOrWhiteSpace(Url))
-            {
-                HttpContext.Response.Headers.Add("location", Url);
-            }
         }
         return new ApiResult<TData?>
         {
             IsSuccess = isSuccess,
             Data = isSuccess ? operationResult.Data : default,
+            Links = LinkGenerator.AddLink<TData>(operationResult.Data, UrlPath),
             MetaData = new()
             {
                 Message = operationResult.Message,
