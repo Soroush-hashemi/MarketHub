@@ -3,7 +3,7 @@
 namespace Shared.ApiResponse.Links;
 public static class LinkGenerator
 {
-    private static string Url = "https://localhost:7293/api/";
+    private static string Url = "https://localhost:7293/api";
     public static List<LinkDto> AddLink<TData>(TData Result, string UrlPath)
     {
         var links = new List<LinkDto>()

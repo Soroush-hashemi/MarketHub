@@ -9,7 +9,7 @@ namespace ApiMarketHub.PresentationFacade.Comments;
 public interface ICommentFacade
 {
     Task<OperationResult> ChangeStatus(ChangeStatusCommentCommand command);
-    Task<OperationResult> Create(CreateCommentCommand command);
+    Task<OperationResult<long>> Create(CreateCommentCommand command);
     Task<OperationResult> Delete(DeleteCommentCommand command);
     Task<OperationResult> Edit(EditCommentCommand command);
 

@@ -7,7 +7,6 @@ using ApiMarketHub.Query.Comments.GetByFilter;
 using ApiMarketHub.Query.Comments.GetById;
 using MediatR;
 using Shared.Application;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ApiMarketHub.PresentationFacade.Comments;
 internal class CommentFacade : ICommentFacade
@@ -22,7 +21,7 @@ internal class CommentFacade : ICommentFacade
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> Create(CreateCommentCommand command)
+    public async Task<OperationResult<long>> Create(CreateCommentCommand command)
     {
         return await _mediator.Send(command);
     }

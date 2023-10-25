@@ -6,6 +6,7 @@ using ApiMarketHub.PresentationFacade.Comments;
 using ApiMarketHub.Query.Comments.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ApiResponse;
+using System.Net;
 
 namespace MarketHub.Api.Controllers;
 
@@ -20,10 +21,11 @@ public class CommentController : ApiController
     }
 
     [HttpPost]
-    public async Task<ApiResult> Create(CreateCommentCommand command)
+    public async Task<ApiResult<long>> Create(CreateCommentCommand command)
     {
         var result = await _commentFacade.Create(command);
-        return CommandResult(result);
+        var Path = "Comment";
+        return CommandResult(result, HttpStatusCode.Created, Path);
     }
 
     [HttpPut]
@@ -54,8 +56,8 @@ public class CommentController : ApiController
         return QueryResult(result);
     }
 
-    [HttpGet]
-    public async Task<ApiResult<CommentFilterResult>> GetCommentByFilter([FromQuery] CommentFilterParams filterParams)
+    [HttpGet("Filter")]
+    public async Task<ApiResult<CommentFilterResult>> GetCommentByFilter(CommentFilterParams filterParams)
     {
         var result = await _commentFacade.GetCommentByFilter(filterParams);
         return QueryResult(result);

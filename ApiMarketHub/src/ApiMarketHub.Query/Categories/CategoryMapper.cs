@@ -6,9 +6,6 @@ internal static class CategoryMapper
 {
     public static CategoryDto Map(this Category? category)
     {
-        if (category == null)
-            throw new ArgumentNullException();
-
         return new CategoryDto()
         {
             Title = category.Title,

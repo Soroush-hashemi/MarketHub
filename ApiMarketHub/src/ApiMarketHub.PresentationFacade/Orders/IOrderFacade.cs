@@ -6,7 +6,6 @@ using ApiMarketHub.Application.Orders.Finally;
 using ApiMarketHub.Application.Orders.IncreaseItemCount;
 using ApiMarketHub.Application.Orders.RemoveItem;
 using ApiMarketHub.Query.Orders.DTOs;
-using ApiMarketHub.Query.Orders.GetCurrent;
 using Shared.Application;
 
 namespace ApiMarketHub.PresentationFacade.Orders;
@@ -19,7 +18,6 @@ public interface IOrderFacade
     Task<OperationResult> IncreaseItemCount(IncreaseItemCountOrderCommand command);
     Task<OperationResult> FinallyOrderCommand(FinallyOrderCommand command);
     Task<OperationResult> RemoveItemOrder(RemoveItemOrderCommand command);
-
 
     Task<OrderDto?> GetCurrentUserOrder(long userId);
     Task<OrderDto?> GetOrderById(long orderId);
