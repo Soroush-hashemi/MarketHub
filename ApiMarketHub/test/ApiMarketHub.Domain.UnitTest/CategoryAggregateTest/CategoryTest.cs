@@ -1,14 +1,11 @@
 ﻿using ApiMarketHub.Domain.CategoryAggregate.Service;
 using ApiMarketHub.Domain.UnitTest.CategoryAggregateTest.Builder;
-using ApiMarketHub.Domain.UserAggregate.Service;
-using ApiMarketHub.Domain.UserAggregate;
 using FluentAssertions;
 using NSubstitute;
 using Shared.Domain.Exceptions;
 using Xunit;
 using ApiMarketHub.Domain.CategoryAggregate;
 using Shared.Domain.ValueObjects;
-using System;
 
 namespace ApiMarketHub.Domain.UnitTest.CategoryAggregateTest;
 public class CategoryTest

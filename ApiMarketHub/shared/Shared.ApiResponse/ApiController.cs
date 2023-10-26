@@ -57,8 +57,6 @@ public class ApiController : ControllerBase
     }
 }
 
-
-
 public static class AppStatusCodeMapper
 {
     public static AppStatusCode Map(this OperationResultStatus resultStatus)
