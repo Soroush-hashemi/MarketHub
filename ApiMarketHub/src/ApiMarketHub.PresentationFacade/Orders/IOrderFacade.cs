@@ -16,7 +16,7 @@ public interface IOrderFacade
     Task<OperationResult> Checkout(CheckoutOrderCommand command);
     Task<OperationResult> DecreaseItemCount(DecreaseItemCountOrderCommand command);
     Task<OperationResult> IncreaseItemCount(IncreaseItemCountOrderCommand command);
-    Task<OperationResult> FinallyOrderCommand(FinallyOrderCommand command);
+    Task<OperationResult> Finally(FinallyOrderCommand command);
     Task<OperationResult> RemoveItemOrder(RemoveItemOrderCommand command);
 
     Task<OrderDto?> GetCurrentUserOrder(long userId);

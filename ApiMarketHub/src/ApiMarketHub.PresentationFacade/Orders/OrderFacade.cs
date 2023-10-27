@@ -41,7 +41,7 @@ internal class OrderFacade : IOrderFacade
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> FinallyOrderCommand(FinallyOrderCommand command)
+    public async Task<OperationResult> Finally(FinallyOrderCommand command)
     {
         return await _mediator.Send(command);
     }

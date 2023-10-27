@@ -3,9 +3,7 @@ using ApiMarketHub.Application.Comments.Create;
 using ApiMarketHub.Application.Comments.Delete;
 using ApiMarketHub.Application.Comments.Edit;
 using ApiMarketHub.Domain.CommentAggregate.Enum;
-using ApiMarketHub.PresentationFacade.Categories;
 using ApiMarketHub.PresentationFacade.Comments;
-using ApiMarketHub.Query.Categories.DTOs;
 using ApiMarketHub.Query.Comments.DTOs;
 using FluentAssertions;
 using MarketHub.Api.Controllers;
@@ -40,8 +38,8 @@ public class CommentControllerTest
         {
             HttpContext = httpContext
         };
-
         CommentFacade.Create(command).Returns(expectedResult);
+
         // Act
         var result = await controller.Create(command);
 
@@ -255,7 +253,7 @@ public class CommentControllerTest
     }
 
     [Fact]
-    public async Task GetCommentById_ValidCommand_ReturnsCommentDto()
+    public async Task GetCommentById_ValidQuery_ReturnsCommentDto()
     {
         // Arrange
         var CommentFacade = Substitute.For<ICommentFacade>();
@@ -263,7 +261,6 @@ public class CommentControllerTest
         var commentId = 1;
 
         var expectedCommentDto = new CommentDto();
-
 
         CommentFacade.GetCommentById(commentId).Returns(expectedCommentDto);
 
@@ -276,7 +273,7 @@ public class CommentControllerTest
     }
 
     [Fact]
-    public async Task CommentFilterParams_ValidCommand_ReturnsCommentFilterResult()
+    public async Task GetCommentByFilter_ValidQuery_ReturnsCommentFilterResult()
     {
         // Arrange
         var CommentFacade = Substitute.For<ICommentFacade>();

@@ -58,7 +58,7 @@ public class OrderController : ApiController
     [HttpPut("ChangeStatus/Finally")]
     public async Task<ApiResult> Finally(FinallyOrderCommand command)
     {
-        var result = await _orderFacade.FinallyOrderCommand(command);
+        var result = await _orderFacade.Finally(command);
         return CommandResult(result);
     }
 

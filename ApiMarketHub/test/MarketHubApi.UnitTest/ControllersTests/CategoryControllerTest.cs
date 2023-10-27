@@ -227,7 +227,7 @@ public class CategoryControllerTest
     }
 
     [Fact]
-    public async Task GetCategoryById_ValidCategoryId_ReturnsCategoryDto()
+    public async Task GetCategoryById_ValidQuery_ReturnsCategoryDto()
     {
         // Arrange
         var categoryFacade = Substitute.For<ICategoryFacade>();
@@ -254,7 +254,7 @@ public class CategoryControllerTest
     }
 
     [Fact]
-    public async Task GetCategoryByParentId_ValidCategoryId_ReturnsListSubCategoryDto()
+    public async Task GetCategoryByParentId_ValidQuery_ReturnsListSubCategoryDto()
     {
         // Arrange
         var categoryFacade = Substitute.For<ICategoryFacade>();
@@ -262,7 +262,6 @@ public class CategoryControllerTest
         var ParentId = 1;
 
         var expectedCategoryDto = new List<SubCategoryDto>();
-
 
         categoryFacade.GetCategoryByParentId(ParentId).Returns(expectedCategoryDto);
 
@@ -275,7 +274,7 @@ public class CategoryControllerTest
     }
 
     [Fact]
-    public async Task GetCategoryList_ValidCategoryId_ReturnsListCategoryDto()
+    public async Task GetCategoryList_ValidQuery_ReturnsListCategoryDto()
     {
         // Arrange
         var categoryFacade = Substitute.For<ICategoryFacade>();
