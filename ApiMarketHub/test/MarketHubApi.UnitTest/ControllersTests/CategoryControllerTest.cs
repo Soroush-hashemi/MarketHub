@@ -5,12 +5,9 @@ using Shared.Domain.ValueObjects;
 using NSubstitute;
 using Xunit;
 using Shared.Application;
-using System.Net;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
-using ApiMarketHub.Domain.CategoryAggregate;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.Features;
 using ApiMarketHub.Application.Categories.AddChild;
 using ApiMarketHub.Application.Categories.Edit;
 using ApiMarketHub.Query.Categories.DTOs;
@@ -42,7 +39,6 @@ public class CategoryControllerTest
             HttpContext = httpContext
         };
 
-
         categoryFacade.Create(command).Returns(expectedResult);
         // Act
         var result = await controller.Create(command);
@@ -72,7 +68,6 @@ public class CategoryControllerTest
         {
             HttpContext = httpContext
         };
-
 
         categoryFacade.Create(command).Returns(expectedResult);
         // Act
@@ -106,7 +101,6 @@ public class CategoryControllerTest
             HttpContext = httpContext
         };
 
-
         categoryFacade.AddChild(command).Returns(expectedResult);
         // Act
         var result = await controller.AddChild(command);
@@ -136,7 +130,6 @@ public class CategoryControllerTest
         {
             HttpContext = httpContext
         };
-
 
         categoryFacade.AddChild(command).Returns(expectedResult);
         // Act

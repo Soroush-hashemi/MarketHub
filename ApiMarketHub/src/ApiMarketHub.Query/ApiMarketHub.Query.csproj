@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Comments\NewFolder\" />
     <Folder Include="Products\GetForStore\" />
     <Folder Include="Users\UserTokens\" />
   </ItemGroup>
