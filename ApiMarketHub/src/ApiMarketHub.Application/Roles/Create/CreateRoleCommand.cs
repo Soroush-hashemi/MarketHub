@@ -1,5 +1,4 @@
-﻿using ApiMarketHub.Domain.RoleAggregate;
-using ApiMarketHub.Domain.RoleAggregate.Enum;
+﻿using ApiMarketHub.Domain.RoleAggregate.Enum;
 using Shared.Application;
 
 namespace ApiMarketHub.Application.Roles.Create;

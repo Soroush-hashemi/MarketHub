@@ -261,16 +261,16 @@ public class CategoryControllerTest
         var controller = new CategoryController(categoryFacade);
         var ParentId = 1;
 
-        var expectedCategoryDto = new List<SubCategoryDto>();
+        var expectedResult = new List<SubCategoryDto>();
 
-        categoryFacade.GetCategoryByParentId(ParentId).Returns(expectedCategoryDto);
+        categoryFacade.GetCategoryByParentId(ParentId).Returns(expectedResult);
 
         // Act
         var result = await controller.GetCategoryByParentId(ParentId);
 
         // Assert
         result.IsSuccess.Should().BeTrue();
-        result.Data.Should().BeEquivalentTo(expectedCategoryDto);
+        result.Data.Should().BeEquivalentTo(expectedResult);
     }
 
     [Fact]
