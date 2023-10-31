@@ -32,10 +32,10 @@ namespace MarketHub.Api.Controllers
             return CommandResult(result);
         }
 
-        [HttpGet("{roleId}")]
-        public async Task<ApiResult<RoleDto?>> GetRoleById(long roleId)
+        [HttpGet("{SId}")]
+        public async Task<ApiResult<RoleDto?>> GetRoleById(long Id)
         {
-            var result = await _roleFacade.GetRoleById(roleId);
+            var result = await _roleFacade.GetRoleById(Id);
             return QueryResult(result);
         }
 
