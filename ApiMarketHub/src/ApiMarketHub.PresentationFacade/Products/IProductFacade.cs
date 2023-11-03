@@ -3,7 +3,6 @@ using ApiMarketHub.Application.Products.Create;
 using ApiMarketHub.Application.Products.Edit;
 using ApiMarketHub.Application.Products.RemoveImage;
 using ApiMarketHub.Query.Products.DTOs;
-using ApiMarketHub.Query.Products.GetById;
 using Shared.Application;
 
 namespace ApiMarketHub.PresentationFacade.Products;

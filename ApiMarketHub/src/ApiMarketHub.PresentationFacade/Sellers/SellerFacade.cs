@@ -17,12 +17,12 @@ internal class SellerFacade : ISellerFacade
         _mediator = mediator;
     }
 
-    public async Task<OperationResult> CreateSeller(CreateSellerCommand command)
+    public async Task<OperationResult> Create(CreateSellerCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> EditSeller(EditSellerCommand command)
+    public async Task<OperationResult> Edit(EditSellerCommand command)
     {
         return await _mediator.Send(command);
     }
