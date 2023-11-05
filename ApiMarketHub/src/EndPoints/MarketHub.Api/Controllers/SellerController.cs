@@ -2,14 +2,11 @@
 using ApiMarketHub.Application.Sellers.Create;
 using ApiMarketHub.Application.Sellers.Edit;
 using ApiMarketHub.Application.Sellers.EditInventory;
-using ApiMarketHub.Domain.UserAggregate;
-using ApiMarketHub.PresentationFacade.Categories;
 using ApiMarketHub.PresentationFacade.Sellers;
 using ApiMarketHub.PresentationFacade.Sellers.Inventories;
 using ApiMarketHub.Query.Sellers.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ApiResponse;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace MarketHub.Api.Controllers;
 

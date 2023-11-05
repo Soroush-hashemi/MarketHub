@@ -1,4 +1,4 @@
 ﻿using Shared.Application;
 
 namespace ApiMarketHub.Application.Products.RemoveImage;
-public record RemoveImageProductCommand(long ProductId, long ImageId) : IBaseCommand;
+public record RemoveProductCommandImage(long ProductId, long ImageId) : IBaseCommand;

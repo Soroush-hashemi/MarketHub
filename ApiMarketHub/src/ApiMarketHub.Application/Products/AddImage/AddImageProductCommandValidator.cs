@@ -3,7 +3,7 @@ using Shared.Application.Validation;
 using Shared.Application.Validation.FluentValidations;
 
 namespace ApiMarketHub.Application.Products.AddImage;
-public class AddImageProductCommandValidator : AbstractValidator<AddImageProductCommand>
+public class AddImageProductCommandValidator : AbstractValidator<AddProductImageCommand>
 {
     public AddImageProductCommandValidator()
     {

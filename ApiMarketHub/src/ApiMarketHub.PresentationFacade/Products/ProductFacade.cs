@@ -17,7 +17,7 @@ internal class ProductFacade : IProductFacade
     {
         _mediator = mediator;
     }
-    public async Task<OperationResult> AddImage(AddImageProductCommand command)
+    public async Task<OperationResult> AddImage(AddProductImageCommand command)
     {
         return await _mediator.Send(command);
     }
@@ -27,7 +27,7 @@ internal class ProductFacade : IProductFacade
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> Delete(RemoveImageProductCommand command)
+    public async Task<OperationResult> RemoveImage(RemoveProductCommandImage command)
     {
         return await _mediator.Send(command);
     }

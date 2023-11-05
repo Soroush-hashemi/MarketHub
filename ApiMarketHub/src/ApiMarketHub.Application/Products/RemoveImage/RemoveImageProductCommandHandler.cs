@@ -2,14 +2,9 @@
 using Shared.Application;
 using Shared.Application.FileUtil;
 using Shared.Application.FileUtil.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiMarketHub.Application.Products.RemoveImage;
-public class RemoveImageProductCommandHandler : IBaseCommandHandler<RemoveImageProductCommand>
+public class RemoveImageProductCommandHandler : IBaseCommandHandler<RemoveProductCommandImage>
 {
     private readonly IProductRepository _productRepository;
     private readonly IFileService _fileService;
@@ -19,7 +14,7 @@ public class RemoveImageProductCommandHandler : IBaseCommandHandler<RemoveImageP
         _fileService = fileService;
     }
 
-    public async Task<OperationResult> Handle(RemoveImageProductCommand request, CancellationToken cancellationToken)
+    public async Task<OperationResult> Handle(RemoveProductCommandImage request, CancellationToken cancellationToken)
     {
         var product = await _productRepository.GetTracking(request.ProductId);
         if (product == null)

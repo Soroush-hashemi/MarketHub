@@ -5,7 +5,7 @@ using Shared.Application.FileUtil;
 using Shared.Application.FileUtil.Interfaces;
 
 namespace ApiMarketHub.Application.Products.AddImage;
-public class AddImageProductCommandHandler : IBaseCommandHandler<AddImageProductCommand>
+public class AddImageProductCommandHandler : IBaseCommandHandler<AddProductImageCommand>
 {
     private readonly IProductRepository _productRepository;
     private readonly IFileService _fileService;
@@ -15,7 +15,7 @@ public class AddImageProductCommandHandler : IBaseCommandHandler<AddImageProduct
         _fileService = fileService;
     }
 
-    public async Task<OperationResult> Handle(AddImageProductCommand request, CancellationToken cancellationToken)
+    public async Task<OperationResult> Handle(AddProductImageCommand request, CancellationToken cancellationToken)
     {
         var product = await _productRepository.GetTracking(request.ProductId);
         if (product == null)

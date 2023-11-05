@@ -32,7 +32,7 @@ public class ShippingMethodController : ApiController
         return CommandResult(result);
     }
 
-    [HttpPut]
+    [HttpDelete]
     public async Task<ApiResult> Delete(DeleteShippingMethodCommand command)
     {
         var result = await _shippingMethodFacade.Delete(command);

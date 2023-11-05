@@ -32,7 +32,7 @@ namespace MarketHub.Api.Controllers
             return CommandResult(result);
         }
 
-        [HttpPut]
+        [HttpDelete]
         public async Task<ApiResult> Delete(DeleteSliderCommand command)
         {
             var result = await _sliderFacade.Delete(command);

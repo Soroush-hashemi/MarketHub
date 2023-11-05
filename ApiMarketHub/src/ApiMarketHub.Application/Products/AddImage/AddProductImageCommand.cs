@@ -2,7 +2,7 @@
 using Shared.Application;
 
 namespace ApiMarketHub.Application.Products.AddImage;
-public class AddImageProductCommand : IBaseCommand
+public class AddProductImageCommand : IBaseCommand
 {
     public IFormFile ImageFile { get; set; }
     public long ProductId { get; set; }

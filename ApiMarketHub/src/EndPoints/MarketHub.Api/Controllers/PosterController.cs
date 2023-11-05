@@ -36,7 +36,7 @@ public class PosterController : ApiController
         return CommandResult(result);
     }
 
-    [HttpPut]
+    [HttpDelete]
     public async Task<ApiResult> Delete(DeletePosterCommand command)
     {
         var result = await _posterFacade.Delete(command);
