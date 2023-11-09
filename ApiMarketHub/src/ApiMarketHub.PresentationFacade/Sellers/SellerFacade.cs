@@ -1,4 +1,5 @@
-﻿using ApiMarketHub.Application.Sellers.Create;
+﻿using ApiMarketHub.Application.Sellers.ChangeStatus;
+using ApiMarketHub.Application.Sellers.Create;
 using ApiMarketHub.Application.Sellers.Edit;
 using ApiMarketHub.Query.Sellers.DTOs;
 using ApiMarketHub.Query.Sellers.GetByFilter;
@@ -6,7 +7,6 @@ using ApiMarketHub.Query.Sellers.GetById;
 using ApiMarketHub.Query.Sellers.GetByUserId;
 using MediatR;
 using Shared.Application;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ApiMarketHub.PresentationFacade.Sellers;
 internal class SellerFacade : ISellerFacade
@@ -15,6 +15,16 @@ internal class SellerFacade : ISellerFacade
     public SellerFacade(IMediator mediator)
     {
         _mediator = mediator;
+    }
+
+    public async Task<OperationResult> ChangeStatusSellerToAccepted(ChangeStatusSellerToAcceptedCommand command)
+    {
+        return await _mediator.Send(command);
+    }
+
+    public async Task<OperationResult> ChangeStatusSellerToRejected(ChangeStatusSellerToRejectedCommand command)
+    {
+        return await _mediator.Send(command);
     }
 
     public async Task<OperationResult> Create(CreateSellerCommand command)

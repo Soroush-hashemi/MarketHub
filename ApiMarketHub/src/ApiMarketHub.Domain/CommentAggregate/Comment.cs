@@ -13,7 +13,7 @@ public class Comment : AggregateRoot
 
     private Comment()
     {
-        
+
     }
 
     public Comment(long userId, long productId, string text)
@@ -29,6 +29,7 @@ public class Comment : AggregateRoot
     {
         NullOrEmptyException.CheckString(text, nameof(text));
         Text = text;
+        Status = CommentStatus.Pending;
         UpdateDate = DateTime.Now;
     }
 

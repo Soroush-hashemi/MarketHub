@@ -25,6 +25,7 @@ public class Seller : AggregateRoot
         UserId = userId;
         StoreName = shopName;
         NationalCode = nationalCode;
+        Status = SellerStatus.New;
         Inventories = new List<SellerInventory>();
         if (domainService.IsValidSellerInformation(this) == false)
             throw new InvalidDomainDataException("the information is invalid");
@@ -36,7 +37,7 @@ public class Seller : AggregateRoot
         LastUpdate = DateTime.Now;
     }
 
-    public void Edit(string shopName, string nationalCode, SellerStatus status, ISellerDomainService domainService)
+    public void Edit(string shopName, string nationalCode, ISellerDomainService domainService)
     {
         Guard(shopName, nationalCode);
         if (nationalCode != NationalCode)
@@ -45,7 +46,6 @@ public class Seller : AggregateRoot
 
         StoreName = shopName;
         NationalCode = nationalCode;
-        Status = status;
     }
 
     public void AddInventory(SellerInventory inventory)

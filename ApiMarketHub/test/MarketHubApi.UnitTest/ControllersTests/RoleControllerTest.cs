@@ -1,5 +1,6 @@
 ﻿using ApiMarketHub.Application.Roles.Create;
 using ApiMarketHub.Application.Roles.Edit;
+using ApiMarketHub.Domain.RoleAggregate.Enum;
 using ApiMarketHub.PresentationFacade.Roles;
 using ApiMarketHub.Query.Categories.DTOs;
 using ApiMarketHub.Query.Roles.DTO;
@@ -8,6 +9,7 @@ using MarketHub.Api.Controllers;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
 using Shared.Application;
+using System.Collections.Generic;
 using Xunit;
 
 namespace MarketHubApi.UnitTest.ControllersTests;
@@ -19,7 +21,8 @@ public class RoleControllerTest
         // Arrange
         var RoleFacade = Substitute.For<IRoleFacade>();
         var controller = new RoleController(RoleFacade);
-        var command = new CreateRoleCommand();
+        List<Permission> permissions = new List<Permission>();
+        var command = new CreateRoleCommand("test title", permissions);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Success,
@@ -43,7 +46,8 @@ public class RoleControllerTest
         // Arrange
         var RoleFacade = Substitute.For<IRoleFacade>();
         var controller = new RoleController(RoleFacade);
-        var command = new CreateRoleCommand();
+        List<Permission> permissions = new List<Permission>();
+        var command = new CreateRoleCommand("test title", permissions);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Error,
@@ -67,7 +71,8 @@ public class RoleControllerTest
         // Arrange
         var RoleFacade = Substitute.For<IRoleFacade>();
         var controller = new RoleController(RoleFacade);
-        var command = new EditRoleCommand();
+        List<Permission> permissions = new List<Permission>();
+        var command = new EditRoleCommand(1 ,"title edited", permissions);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Success,
@@ -91,7 +96,8 @@ public class RoleControllerTest
         // Arrange
         var RoleFacade = Substitute.For<IRoleFacade>();
         var controller = new RoleController(RoleFacade);
-        var command = new EditRoleCommand();
+        List<Permission> permissions = new List<Permission>();
+        var command = new EditRoleCommand(1, "title edited", permissions);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Error,

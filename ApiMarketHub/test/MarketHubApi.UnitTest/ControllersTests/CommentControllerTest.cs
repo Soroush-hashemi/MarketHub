@@ -194,12 +194,12 @@ public class CommentControllerTest
     }
 
     [Fact]
-    public async Task ChangeStatus_ValidCommand_ReturnsCreatedResult()
+    public async Task ChangeStatusToRejected_ValidCommand_ReturnsCreatedResult()
     {
         // Arrange
         var CommentFacade = Substitute.For<ICommentFacade>();
         var controller = new CommentController(CommentFacade);
-        var command = new ChangeStatusCommentCommand(1, CommentStatus.Accepted);
+        var command = new ChangeStatusCommentToRejectedCommand(1);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Success,
@@ -214,21 +214,21 @@ public class CommentControllerTest
             HttpContext = httpContext
         };
 
-        CommentFacade.ChangeStatus(command).Returns(expectedResult);
+        CommentFacade.ChangeStatusToRejected(command).Returns(expectedResult);
         // Act
-        var result = await controller.ChangeStatus(command);
+        var result = await controller.ChangeStatusToRejected(command);
 
         // Assert
         result.IsSuccess.Should().BeTrue();
     }
 
     [Fact]
-    public async Task ChangeStatus_InValidCommand_ReturnsSuccessIsFalse()
+    public async Task ChangeStatusToRejected_InValidCommand_ReturnsSuccessIsFalse()
     {
         // Arrange
         var CommentFacade = Substitute.For<ICommentFacade>();
         var controller = new CommentController(CommentFacade);
-        var command = new ChangeStatusCommentCommand(1, CommentStatus.Accepted);
+        var command = new ChangeStatusCommentToRejectedCommand(1);
         var expectedResult = new OperationResult
         {
             Status = OperationResultStatus.Error,
@@ -243,10 +243,70 @@ public class CommentControllerTest
             HttpContext = httpContext
         };
 
-        CommentFacade.ChangeStatus(command).Returns(expectedResult);
+        CommentFacade.ChangeStatusToRejected(command).Returns(expectedResult);
 
         // Act
-        var result = await controller.ChangeStatus(command);
+        var result = await controller.ChangeStatusToRejected(command);
+
+        // Assert
+        result.IsSuccess.Should().BeFalse();
+    }
+
+
+    [Fact]
+    public async Task ChangeStatusToAccepted_ValidCommand_ReturnsCreatedResult()
+    {
+        // Arrange
+        var CommentFacade = Substitute.For<ICommentFacade>();
+        var controller = new CommentController(CommentFacade);
+        var command = new ChangeStatusCommentToAcceptedCommand(1);
+        var expectedResult = new OperationResult
+        {
+            Status = OperationResultStatus.Success,
+            Message = "test",
+        };
+
+        var httpContext = Substitute.For<HttpContext>();
+        httpContext.Response.StatusCode.Returns(200);
+
+        controller.ControllerContext = new ControllerContext
+        {
+            HttpContext = httpContext
+        };
+
+        CommentFacade.ChangeStatusToAccepted(command).Returns(expectedResult);
+        // Act
+        var result = await controller.ChangeStatusToAccepted(command);
+
+        // Assert
+        result.IsSuccess.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task ChangeStatusToAccepted_InValidCommand_ReturnsSuccessIsFalse()
+    {
+        // Arrange
+        var CommentFacade = Substitute.For<ICommentFacade>();
+        var controller = new CommentController(CommentFacade);
+        var command = new ChangeStatusCommentToAcceptedCommand(1);
+        var expectedResult = new OperationResult
+        {
+            Status = OperationResultStatus.Error,
+            Message = "test",
+        };
+
+        var httpContext = Substitute.For<HttpContext>();
+        httpContext.Response.StatusCode.Returns(500);
+
+        controller.ControllerContext = new ControllerContext
+        {
+            HttpContext = httpContext
+        };
+
+        CommentFacade.ChangeStatusToAccepted(command).Returns(expectedResult);
+
+        // Act
+        var result = await controller.ChangeStatusToAccepted(command);
 
         // Assert
         result.IsSuccess.Should().BeFalse();

@@ -19,7 +19,7 @@ public class EditSellerCommandHandler : IBaseCommandHandler<EditSellerCommand>
         if (Seller == null)
             return OperationResult.NotFound();
 
-        Seller.Edit(request.ShopName, request.NationalCode, request.Status, _domainService);
+        Seller.Edit(request.ShopName, request.NationalCode, _domainService);
         await _repository.Save();
         return OperationResult.Success();
     }

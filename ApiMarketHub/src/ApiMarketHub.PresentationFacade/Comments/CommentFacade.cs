@@ -16,7 +16,13 @@ internal class CommentFacade : ICommentFacade
     {
         _mediator = mediator;
     }
-    public async Task<OperationResult> ChangeStatus(ChangeStatusCommentCommand command)
+
+    public async Task<OperationResult> ChangeStatusToAccepted(ChangeStatusCommentToAcceptedCommand command)
+    {
+        return await _mediator.Send(command);
+    }
+
+    public async Task<OperationResult> ChangeStatusToRejected(ChangeStatusCommentToRejectedCommand command)
     {
         return await _mediator.Send(command);
     }

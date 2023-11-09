@@ -42,10 +42,17 @@ public class CommentController : ApiController
         return CommandResult(result);
     }
 
-    [HttpPut("ChangeStatus")]
-    public async Task<ApiResult> ChangeStatus(ChangeStatusCommentCommand command)
+    [HttpPut("ChangeStatus/ToRejected")]
+    public async Task<ApiResult> ChangeStatusToRejected(ChangeStatusCommentToRejectedCommand command)
     {
-        var result = await _commentFacade.ChangeStatus(command);
+        var result = await _commentFacade.ChangeStatusToRejected(command);
+        return CommandResult(result);
+    }
+
+    [HttpPut("ChangeStatus/ToAccepted")]
+    public async Task<ApiResult> ChangeStatusToAccepted(ChangeStatusCommentToAcceptedCommand command)
+    {
+        var result = await _commentFacade.ChangeStatusToAccepted(command);
         return CommandResult(result);
     }
 

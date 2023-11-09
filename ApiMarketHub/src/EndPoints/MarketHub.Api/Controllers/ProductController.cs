@@ -2,11 +2,8 @@
 using ApiMarketHub.Application.Products.Create;
 using ApiMarketHub.Application.Products.Edit;
 using ApiMarketHub.Application.Products.RemoveImage;
-using ApiMarketHub.Application.SideEntities.Posters.Create;
 using ApiMarketHub.PresentationFacade.Products;
-using ApiMarketHub.PresentationFacade.SideEntities.Poster;
 using ApiMarketHub.Query.Products.DTOs;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ApiResponse;
 

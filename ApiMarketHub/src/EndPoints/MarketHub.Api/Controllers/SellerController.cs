@@ -1,7 +1,10 @@
-﻿using ApiMarketHub.Application.Sellers.AddInventory;
+﻿using ApiMarketHub.Application.Comments.ChangeStatus;
+using ApiMarketHub.Application.Sellers.AddInventory;
+using ApiMarketHub.Application.Sellers.ChangeStatus;
 using ApiMarketHub.Application.Sellers.Create;
 using ApiMarketHub.Application.Sellers.Edit;
 using ApiMarketHub.Application.Sellers.EditInventory;
+using ApiMarketHub.PresentationFacade.Comments;
 using ApiMarketHub.PresentationFacade.Sellers;
 using ApiMarketHub.PresentationFacade.Sellers.Inventories;
 using ApiMarketHub.Query.Sellers.DTOs;
@@ -37,6 +40,23 @@ public class SellerController : ApiController
         var result = await _sellerFacade.Edit(command);
         return CommandResult(result);
     }
+
+
+    [HttpPut("ChangeStatus/ToRejected")]
+    public async Task<ApiResult> ChangeStatusToRejected(ChangeStatusSellerToRejectedCommand command)
+    {
+        var result = await _sellerFacade.ChangeStatusSellerToRejected(command);
+        return CommandResult(result);
+    }
+
+    [HttpPut("ChangeStatus/ToAccepted")]
+    public async Task<ApiResult> ChangeStatusToAccepted(ChangeStatusSellerToAcceptedCommand command)
+    {
+        var result = await _sellerFacade.ChangeStatusSellerToAccepted(command);
+        return CommandResult(result);
+    }
+
+
 
     [HttpGet("{Id}")]
     public async Task<ApiResult<SellerDto?>> GetSellerById(long Id)
