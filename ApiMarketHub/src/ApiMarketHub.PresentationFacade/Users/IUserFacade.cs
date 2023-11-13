@@ -6,8 +6,8 @@ using Shared.Application;
 namespace ApiMarketHub.PresentationFacade.Users;
 public interface IUserFacade
 {
-    Task<OperationResult> EditUser(EditUserCommand command);
-    Task<OperationResult> CreateUser(CreateUserCommand command);
+    Task<OperationResult> Create(CreateUserCommand command);
+    Task<OperationResult> Edit(EditUserCommand command);
 
     Task<UserDto?> GetUserByPhoneNumber(string phoneNumber);
     Task<UserDto?> GetUserById(long userId);

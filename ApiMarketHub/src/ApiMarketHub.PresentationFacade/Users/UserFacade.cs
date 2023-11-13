@@ -18,12 +18,12 @@ internal class UserFacade : IUserFacade
         _mediator = mediator;
     }
 
-    public async Task<OperationResult> CreateUser(CreateUserCommand command)
+    public async Task<OperationResult> Create(CreateUserCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> EditUser(EditUserCommand command)
+    public async Task<OperationResult> Edit(EditUserCommand command)
     {
         return await _mediator.Send(command);
     }

@@ -41,7 +41,6 @@ public class SellerController : ApiController
         return CommandResult(result);
     }
 
-
     [HttpPut("ChangeStatus/ToRejected")]
     public async Task<ApiResult> ChangeStatusToRejected(ChangeStatusSellerToRejectedCommand command)
     {
@@ -55,8 +54,6 @@ public class SellerController : ApiController
         var result = await _sellerFacade.ChangeStatusSellerToAccepted(command);
         return CommandResult(result);
     }
-
-
 
     [HttpGet("{Id}")]
     public async Task<ApiResult<SellerDto?>> GetSellerById(long Id)
