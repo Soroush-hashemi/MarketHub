@@ -37,7 +37,7 @@ namespace MarketHub.Api.Controllers
         {
             var result = await _sliderFacade.Delete(command);
             return CommandResult(result);
-        }
+        }   
 
         [HttpGet("{Id}")]
         public async Task<ApiResult<SliderDto?>> GetSliderById(long Id)
