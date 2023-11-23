@@ -12,8 +12,6 @@ using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
 public class UserController : ApiController
 {
     private readonly IUserFacade _userFacade;

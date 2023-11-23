@@ -10,8 +10,6 @@ using System.Net;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
 public class CommentController : ApiController
 {
     private readonly ICommentFacade _commentFacade;

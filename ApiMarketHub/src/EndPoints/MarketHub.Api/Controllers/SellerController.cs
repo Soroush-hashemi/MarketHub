@@ -1,10 +1,8 @@
-﻿using ApiMarketHub.Application.Comments.ChangeStatus;
-using ApiMarketHub.Application.Sellers.AddInventory;
+﻿using ApiMarketHub.Application.Sellers.AddInventory;
 using ApiMarketHub.Application.Sellers.ChangeStatus;
 using ApiMarketHub.Application.Sellers.Create;
 using ApiMarketHub.Application.Sellers.Edit;
 using ApiMarketHub.Application.Sellers.EditInventory;
-using ApiMarketHub.PresentationFacade.Comments;
 using ApiMarketHub.PresentationFacade.Sellers;
 using ApiMarketHub.PresentationFacade.Sellers.Inventories;
 using ApiMarketHub.Query.Sellers.DTOs;
@@ -13,8 +11,6 @@ using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
 public class SellerController : ApiController
 {
     private readonly ISellerFacade _sellerFacade;

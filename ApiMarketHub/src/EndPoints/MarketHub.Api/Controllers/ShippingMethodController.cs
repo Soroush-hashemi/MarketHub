@@ -8,8 +8,6 @@ using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
 public class ShippingMethodController : ApiController
 {
     private readonly IShippingMethodFacade _shippingMethodFacade;

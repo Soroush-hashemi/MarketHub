@@ -1,19 +1,13 @@
-﻿using ApiMarketHub.Application.Roles.Create;
-using ApiMarketHub.Application.Roles.Edit;
-using ApiMarketHub.Application.SideEntities.Posters.Create;
+﻿using ApiMarketHub.Application.SideEntities.Posters.Create;
 using ApiMarketHub.Application.SideEntities.Posters.Delete;
 using ApiMarketHub.Application.SideEntities.Posters.Edit;
-using ApiMarketHub.PresentationFacade.Roles;
 using ApiMarketHub.PresentationFacade.SideEntities.Poster;
-using ApiMarketHub.Query.Roles.DTO;
 using ApiMarketHub.Query.SideEntities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
 public class PosterController : ApiController
 {
     private readonly IPosterFacade _posterFacade;

@@ -8,7 +8,6 @@ using Shared.ApiResponse;
 using System.Net;
 
 namespace MarketHub.Api.Controllers;
-
 public class CategoryController : ApiController
 {
     private readonly ICategoryFacade _categoryFacade;

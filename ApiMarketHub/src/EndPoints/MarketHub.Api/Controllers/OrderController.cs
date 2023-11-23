@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 using Shared.ApiResponse;
 
 namespace MarketHub.Api.Controllers;
-
 public class OrderController : ApiController
 {
     private readonly IOrderFacade _orderFacade;

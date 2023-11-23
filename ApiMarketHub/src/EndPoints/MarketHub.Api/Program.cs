@@ -14,8 +14,10 @@ services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 services.AddSwaggerGen();
-
-Bootstrapper.ConfigBootstrapper(services, builder.Configuration.GetConnectionString("DefaultConnection"));
+var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (ConnectionString is null)
+    throw new NullReferenceException("ConnectionString is null");
+Bootstrapper.ConfigBootstrapper(services, ConnectionString);
 
 ValidationBootstrapper.Init(services);
 services.AddTransient<IFileService, FileService>();
