@@ -46,7 +46,7 @@ public class MarketHubContext : DbContext
     // تنظیمات لازم برای اتصال به دیتابیس رو میده بهمون
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {   // تنظیم می‌کند که تمامی داده‌هایی که از پایگاه داده خوانده می‌شوند و قابل تغییر نیستند
-        optionsBuilder.UseSqlServer("Server=.;Database=MarketHub;User Id=sa;Password=!?So1384;TrustServerCertificate=True;MultipleActiveResultSets=true");
+        optionsBuilder.UseSqlServer("Server=.;Database=MarketHub;User Id=sa;Password=13841384;TrustServerCertificate=True;MultipleActiveResultSets=true");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         base.OnConfiguring(optionsBuilder);
     }

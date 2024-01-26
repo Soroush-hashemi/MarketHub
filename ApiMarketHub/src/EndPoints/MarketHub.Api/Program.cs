@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+    
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
@@ -21,7 +21,6 @@ Bootstrapper.ConfigBootstrapper(services, ConnectionString);
 
 ValidationBootstrapper.Init(services);
 services.AddTransient<IFileService, FileService>();
-
 
 var app = builder.Build();
 

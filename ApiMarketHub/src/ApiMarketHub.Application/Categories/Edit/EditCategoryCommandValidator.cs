@@ -6,7 +6,7 @@ public class EditCategoryCommandValidator : AbstractValidator<EditCategoryComman
 {
     public EditCategoryCommandValidator()
     {
-        RuleFor(v => v.title).NotNull().NotEmpty().WithMessage(ValidationMessages.required("Title"));
+        RuleFor(v => v.title).NotNull().NotEmpty().WithMessage(ValidationMessages.required("عنوان"));
         RuleFor(v => v.slug).NotNull().NotEmpty().WithMessage(ValidationMessages.required("Slug"));
     }
 }

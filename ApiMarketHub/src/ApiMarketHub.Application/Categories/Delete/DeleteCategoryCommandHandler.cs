@@ -1,6 +1,5 @@
 ﻿using ApiMarketHub.Domain.CategoryAggregate.Repository;
 using Shared.Application;
-using System;
 
 namespace ApiMarketHub.Application.Categories.Delete;
 public class DeleteCategoryCommandHandler : IBaseCommandHandler<DeleteCategoryCommand>
@@ -19,7 +18,6 @@ public class DeleteCategoryCommandHandler : IBaseCommandHandler<DeleteCategoryCo
             await _categoryRepository.Save();
             return OperationResult.Success();
         }
-
         return OperationResult.Error("امکان حذف این دسته بندی وجود ندارد");
     }
 }

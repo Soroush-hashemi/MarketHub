@@ -8,7 +8,6 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.ToTable("Users", "user");
-        // builder.HasIndex(b => b.PhoneNumber).IsUnique();
         builder.HasIndex(b => b.Email).IsUnique();
 
         builder.Property(b => b.Email)

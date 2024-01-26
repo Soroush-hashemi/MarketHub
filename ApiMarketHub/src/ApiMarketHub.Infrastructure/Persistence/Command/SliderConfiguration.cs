@@ -9,10 +9,8 @@ internal class SliderConfiguration : IEntityTypeConfiguration<Slider>
     {
         builder.Property(b => b.ImageName)
             .HasMaxLength(120).IsRequired();
-
         builder.Property(b => b.Title)
             .HasMaxLength(120);
-
         builder.Property(b => b.Link)
             .HasMaxLength(500);
     }

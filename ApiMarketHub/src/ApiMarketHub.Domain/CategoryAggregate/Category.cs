@@ -20,7 +20,7 @@ public class Category : AggregateRoot
 
     public Category(string title, string slug, SeoData seoData, ICategoryDomainService service)
     {
-        slug = slug?.ToSlug();
+        slug?.ToSlug();
         Guard(title, slug, service);
         Title = title;
         Slug = slug;
@@ -30,7 +30,7 @@ public class Category : AggregateRoot
 
     public void Edit(string title, string slug, SeoData seoData, ICategoryDomainService service)
     {
-        slug = slug?.ToSlug();
+        slug?.ToSlug();
         Guard(title, slug, service);
         Title = title;
         Slug = slug;
@@ -39,6 +39,7 @@ public class Category : AggregateRoot
 
     public void AddChild(string title, string slug, SeoData seoData, ICategoryDomainService service)
     {
+        Guard(title, slug, service);
         Childs.Add(new Category(title, slug, seoData, service)
         {
             ParentId = Id

@@ -1,4 +1,5 @@
-﻿using ApiMarketHub.Domain.CategoryAggregate.Repository;
+﻿using AngleSharp;
+using ApiMarketHub.Domain.CategoryAggregate.Repository;
 using ApiMarketHub.Domain.CommentAggregate.Repository;
 using ApiMarketHub.Domain.OrderAggregate.Repository;
 using ApiMarketHub.Domain.ProductAggregate.Repository;
@@ -30,9 +31,11 @@ public static class InfrastructureBootstrapper
 
         services.AddTransient(_ => new DapperContext(connectionString));
 
-        services.AddDbContext<MarketHubContext>(option =>
+        services.AddDbContext<MarketHubContext>(options =>
         {
-            option.UseSqlServer(connectionString);
+            options.UseSqlServer((connectionString),
+                sqlServerOptions => sqlServerOptions.EnableRetryOnFailure());
         });
+
     }
 }
